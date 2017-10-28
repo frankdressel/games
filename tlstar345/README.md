@@ -1,7 +1,11 @@
 # tlstar345
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+tlstar345 is a simple game, which allows you to move building blocks around 
+until they build an encoded pattern. The building blocks can be defined 
+arbitrarily by changing the source code. The building blocks are shifted with 
+drag and drop. In case of success a music is played.
+
+Build with ember.
 
 ## Prerequisites
 
