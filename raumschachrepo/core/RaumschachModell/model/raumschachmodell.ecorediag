@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_mEK2wDrcEeCr9Zsh3L7fTQ" type="EcoreTools" name="raumschachmodellmodell" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_ONubYHlsEeCwl_s5wAB1kg" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_ONys0HlsEeCwl_s5wAB1kg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_ONz68HlsEeCwl_s5wAB1kg" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_SOr6IMBfEeCLsbAZXRE-Kg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="raumschachmodell.ecore#//Spiel/active"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_SOr6IcBfEeCLsbAZXRE-Kg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_HK6QELC7EeC93Loknjp36A" type="2001">
+        <element xmi:type="ecore:EAttribute" href="raumschachmodell.ecore#//Spiel/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_HK6QEbC7EeC93Loknjp36A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_Qv3oAHlsEeCwl_s5wAB1kg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="raumschachmodell.ecore#//Spiel/beschreibung"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Qv3oAXlsEeCwl_s5wAB1kg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ONz68XlsEeCwl_s5wAB1kg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ONz68nlsEeCwl_s5wAB1kg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ONz683lsEeCwl_s5wAB1kg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_ON2XMHlsEeCwl_s5wAB1kg" type="5002">
+      <children xmi:type="notation:Node" xmi:id="_Ok_xILC9EeC93Loknjp36A" type="2002">
+        <element xmi:type="ecore:EOperation" href="raumschachmodell.ecore#//Spiel/reset"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_Ok_xIbC9EeC93Loknjp36A"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_xUS5IbPbEeC1yspCz1oO_w" type="2002">
+        <element xmi:type="ecore:EOperation" href="raumschachmodell.ecore#//Spiel/createCopy"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_xUS5IrPbEeC1yspCz1oO_w"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ON2-QHlsEeCwl_s5wAB1kg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ON2-QXlsEeCwl_s5wAB1kg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ON2-QnlsEeCwl_s5wAB1kg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ONubYXlsEeCwl_s5wAB1kg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="raumschachmodell.ecore#//Spiel"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ONubYnlsEeCwl_s5wAB1kg" x="485" y="360"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_EJ70YbClEeCRdL7NCugPog" type="1001">
+    <children xmi:type="notation:Node" xmi:id="_EKE-ULClEeCRdL7NCugPog" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_EKE-UbClEeCRdL7NCugPog" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_hwSqYbR4EeC88Mg-0uYoTg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="raumschachmodell.ecore#//Spieler/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_hwSqYrR4EeC88Mg-0uYoTg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_G8KEYLClEeCRdL7NCugPog" type="2001">
+        <element xmi:type="ecore:EAttribute" href="raumschachmodell.ecore#//Spieler/farbe"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_G8KEYbClEeCRdL7NCugPog"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_JkRWILClEeCRdL7NCugPog" type="2001">
+        <element xmi:type="ecore:EAttribute" href="raumschachmodell.ecore#//Spieler/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_JkRWIbClEeCRdL7NCugPog"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_RuyP8L-MEeCwNpNkHHxLQg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="raumschachmodell.ecore#//Spieler/state"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RuyP8b-MEeCwNpNkHHxLQg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_EKE-UrClEeCRdL7NCugPog"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_EKE-U7ClEeCRdL7NCugPog"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_EKE-VLClEeCRdL7NCugPog"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_EKE-VbClEeCRdL7NCugPog" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_EKE-VrClEeCRdL7NCugPog"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_EKE-V7ClEeCRdL7NCugPog"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_EKE-WLClEeCRdL7NCugPog"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_EJ70YrClEeCRdL7NCugPog" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="raumschachmodell.ecore#//Spieler"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EJ70Y7ClEeCRdL7NCugPog" x="30" y="200"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_R0oosLSpEeC88Mg-0uYoTg" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_R1SI8LSpEeC88Mg-0uYoTg" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_R1SI8bSpEeC88Mg-0uYoTg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_R0v9cLSpEeC88Mg-0uYoTg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_R0v9cbSpEeC88Mg-0uYoTg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_R0v9crSpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_R0v9c7SpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_R0v9dLSpEeC88Mg-0uYoTg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_R0018LSpEeC88Mg-0uYoTg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_R0018bSpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_R0018rSpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_R00187SpEeC88Mg-0uYoTg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_R0oosbSpEeC88Mg-0uYoTg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="spielfeld.ecore#//Figur"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_R0oosrSpEeC88Mg-0uYoTg" x="430" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_l5rrYLSpEeC88Mg-0uYoTg" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_l6I-YLSpEeC88Mg-0uYoTg" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_l6JlcLSpEeC88Mg-0uYoTg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_l5sScLSpEeC88Mg-0uYoTg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_l5s5gLSpEeC88Mg-0uYoTg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_l5s5gbSpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_l5s5grSpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_l5s5g7SpEeC88Mg-0uYoTg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_l5s5hLSpEeC88Mg-0uYoTg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_l5s5hbSpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_l5s5hrSpEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_l5s5h7SpEeC88Mg-0uYoTg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_l5rrYbSpEeC88Mg-0uYoTg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="spielfeld.ecore#//Zug"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_l5rrYrSpEeC88Mg-0uYoTg" x="205" y="200"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_fTNT8LUoEeC88Mg-0uYoTg" type="1001">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_fThdALUoEeC88Mg-0uYoTg" source="Shortcut">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_fThdAbUoEeC88Mg-0uYoTg" key="modelID" value="EcoreTools"/>
+    </eAnnotations>
+    <children xmi:type="notation:Node" xmi:id="_fTN7ALUoEeC88Mg-0uYoTg" type="4001"/>
+    <children xmi:type="notation:Node" xmi:id="_fTN7AbUoEeC88Mg-0uYoTg" type="5001">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_fTN7ArUoEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_fTN7A7UoEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_fTOiELUoEeC88Mg-0uYoTg"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_fTOiEbUoEeC88Mg-0uYoTg" type="5002">
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_fTOiErUoEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_fTOiE7UoEeC88Mg-0uYoTg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_fTOiFLUoEeC88Mg-0uYoTg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_fTNT8bUoEeC88Mg-0uYoTg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EClass" href="spielfeld.ecore#//Field"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_fTNT8rUoEeC88Mg-0uYoTg" x="915" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_bx92ULlQEeCrafDs_ohQbA" type="1004">
+    <children xmi:type="notation:Node" xmi:id="_byCHwLlQEeCrafDs_ohQbA" type="4008"/>
+    <children xmi:type="notation:Node" xmi:id="_byCu0LlQEeCrafDs_ohQbA" type="4009"/>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_bx92UblQEeCrafDs_ohQbA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EDataType" href="raumschachmodell.ecore#//EKoordinate"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bx92UrlQEeCrafDs_ohQbA" x="645" y="30"/>
+  </children>
+  <children xmi:type="notation:Node" xmi:id="_LPcN8L-MEeCwNpNkHHxLQg" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_LPeqML-MEeCwNpNkHHxLQg" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_LPf4UL-MEeCwNpNkHHxLQg" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_MO3DkL-MEeCwNpNkHHxLQg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="raumschachmodell.ecore#//State/schach"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_MO3Dkb-MEeCwNpNkHHxLQg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_NK4m8L-MEeCwNpNkHHxLQg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="raumschachmodell.ecore#//State/matt"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_NK4m8b-MEeCwNpNkHHxLQg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_PF0CkL-MEeCwNpNkHHxLQg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="raumschachmodell.ecore#//State/remis"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PF0Ckb-MEeCwNpNkHHxLQg"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_TiV4QL-MEeCwNpNkHHxLQg" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="raumschachmodell.ecore#//State/ok"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TiV4Qb-MEeCwNpNkHHxLQg"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_LPf4Ub-MEeCwNpNkHHxLQg"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_LPf4Ur-MEeCwNpNkHHxLQg"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_LPf4U7-MEeCwNpNkHHxLQg"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_LPcN8b-MEeCwNpNkHHxLQg" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="raumschachmodell.ecore#//State"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_LPcN8r-MEeCwNpNkHHxLQg" x="1130" y="30"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_mEK2wTrcEeCr9Zsh3L7fTQ"/>
+  <element xmi:type="ecore:EPackage" href="raumschachmodell.ecore#/"/>
+  <edges xmi:type="notation:Edge" xmi:id="_PfDSgLClEeCRdL7NCugPog" type="3002" source="_ONubYHlsEeCwl_s5wAB1kg" target="_EJ70YbClEeCRdL7NCugPog">
+    <children xmi:type="notation:Node" xmi:id="_PfDShLClEeCRdL7NCugPog" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_PfDShbClEeCRdL7NCugPog" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_PfDShrClEeCRdL7NCugPog" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_PfDSh7ClEeCRdL7NCugPog" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_PfDSgbClEeCRdL7NCugPog" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_PfDSgrClEeCRdL7NCugPog" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="raumschachmodell.ecore#//Spiel/spieler"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_PfDSg7ClEeCRdL7NCugPog" points="[0, 0, 418, 60]$[-418, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_PfNDgLClEeCRdL7NCugPog" id="(0.12345679012345678,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lEAIoNNKEeCMSpIeoNdkWg" id="(0.4956521739130435,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_l55GwLSpEeC88Mg-0uYoTg" type="3002" source="_l5rrYLSpEeC88Mg-0uYoTg" target="_R0oosLSpEeC88Mg-0uYoTg">
+    <children xmi:type="notation:Node" xmi:id="_l55t0LSpEeC88Mg-0uYoTg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_l55t0bSpEeC88Mg-0uYoTg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_l55t0rSpEeC88Mg-0uYoTg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_l55t07SpEeC88Mg-0uYoTg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_l55GwbSpEeC88Mg-0uYoTg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_l55GwrSpEeC88Mg-0uYoTg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="spielfeld.ecore#//Zug/figur"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_l55Gw7SpEeC88Mg-0uYoTg" points="[0, 0, -218, 60]$[218, -60, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lEAvsNNKEeCMSpIeoNdkWg" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_lEBWwNNKEeCMSpIeoNdkWg" id="(0.28662420382165604,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_orx_kLSpEeC88Mg-0uYoTg" type="3002" source="_ONubYHlsEeCwl_s5wAB1kg" target="_l5rrYLSpEeC88Mg-0uYoTg">
+    <children xmi:type="notation:Node" xmi:id="_orymoLSpEeC88Mg-0uYoTg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_orymobSpEeC88Mg-0uYoTg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_orymorSpEeC88Mg-0uYoTg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_orymo7SpEeC88Mg-0uYoTg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_orx_kbSpEeC88Mg-0uYoTg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_orx_krSpEeC88Mg-0uYoTg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="raumschachmodell.ecore#//Spiel/zuege"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_orx_k7SpEeC88Mg-0uYoTg" points="[0, 0, 269, 102]$[-228, -61, 41, 41]$[-269, -102, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_or2RALSpEeC88Mg-0uYoTg" id="(0.24691358024691357,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_or2RAbSpEeC88Mg-0uYoTg" id="(0.5,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_EWuPkNNJEeCMSpIeoNdkWg" type="3002" source="_ONubYHlsEeCwl_s5wAB1kg" target="_R0oosLSpEeC88Mg-0uYoTg">
+    <children xmi:type="notation:Node" xmi:id="_EWxS4NNJEeCMSpIeoNdkWg" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_EWxS4dNJEeCMSpIeoNdkWg" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_EWyhANNJEeCMSpIeoNdkWg" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_EWyhAdNJEeCMSpIeoNdkWg" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_EWuPkdNJEeCMSpIeoNdkWg" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_EWuPktNJEeCMSpIeoNdkWg" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="raumschachmodell.ecore#//Spiel/figures"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_EWuPk9NJEeCMSpIeoNdkWg" points="[0, 0, 0, 222]$[0, -222, 0, 0]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_EW3ZgNNJEeCMSpIeoNdkWg" id="(0.5,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_EW3ZgdNJEeCMSpIeoNdkWg" id="(0.8726114649681529,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Edge" xmi:id="_KjbjodYhEeCGpuIScrbQHw" type="3002" source="_ONubYHlsEeCwl_s5wAB1kg" target="_fTNT8LUoEeC88Mg-0uYoTg">
+    <children xmi:type="notation:Node" xmi:id="_KjtQcNYhEeCGpuIScrbQHw" type="4011">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KjtQcdYhEeCGpuIScrbQHw" x="-10" y="-10"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_KjuekNYhEeCGpuIScrbQHw" type="4012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_KjuekdYhEeCGpuIScrbQHw" x="10" y="10"/>
+    </children>
+    <styles xmi:type="notation:ConnectorStyle" xmi:id="_KjbjotYhEeCGpuIScrbQHw" lineColor="4210752"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Kjbjo9YhEeCGpuIScrbQHw" fontColor="4210752" fontName="Segoe UI" fontHeight="10"/>
+    <element xmi:type="ecore:EReference" href="raumschachmodell.ecore#//Spiel/fields"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_KjbjpNYhEeCGpuIScrbQHw" points="[13, -11, -340, 301]$[331, -283, -22, 29]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Kj1zUNYhEeCGpuIScrbQHw" id="(0.7962962962962963,0.10909090909090909)"/>
+  </edges>
+</notation:Diagram>

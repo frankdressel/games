@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: DatabaseWrapper
+Bundle-SymbolicName: DatabaseWrapper
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: databasewrapper.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.eclipse.rap.ui;bundle-version="1.4.0",
+ org.eclipse.emf.ecore;bundle-version="2.7.0",
+ Architecture;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: databasewrapper
+Service-Component: OSGI-INF/DatabaseWrapper.xml

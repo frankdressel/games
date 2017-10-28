@@ -1,0 +1,21 @@
+h1. Raumschach
+
+Welcome to Raumschach. You will find more information "here":http://www.moduliertersingvogel.de/ or in the "Wiki":https://github.com/frankdressel/raumschachrepo/wiki.
+ 
+h1. Get it running
+
+To get the project running from the source code use eclipse and checkout the repository, download the needed parts by opening the rapTarget.target file and set this as target platform. Afterwards, use the launch configuration provided in Verwaltung to start the program. It will open a new tab in your browser. If you start it from within eclipse, change the address to http://localhost/view?startup=view in your browser.
+
+h1. Techniques used
+
+h2. Modeling
+
+The modeling is done via EMF. The whole set of figures and fields is modeled and the state changes of instances of these elements are tracked via Adapters.
+
+h2. Logic
+
+The game logic is implemented in Java using the EMF adapters to listen to changes of figures/fields (like a figure is selected, ...), evaluate the changes and in return calculate and set the new state of the model (like changing the position of a figure, ...). 
+ 
+h2. Visualisation
+
+The visualization is done via "Three.js":https://github.com/mrdoob/three.js and presented in a browser widget. The nice thing about three.js is the easy modeling and export of 3d objects with blender.

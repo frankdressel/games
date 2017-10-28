@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               closeable="false"
+               id="Spielfeld.Brett"
+               minimized="false"
+               ratio="0.95"
+               relationship="left"
+               relative="org.eclipse.ui.editorss"
+               showTitle="true"
+               standalone="true"
+               visible="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="spielfeld.ui.ViewBrett"
+            id="Spielfeld.Brett"
+            name="Spielfeld.Brett"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.equinox.http.registry.resources">
+      <resource
+            alias="/javascript"
+            base-name="/javascript">
+      </resource>
+      <resource
+            alias="/javascript/figures"
+            base-name="/javascript/figures">
+      </resource>
+   </extension>
+
+</plugin>

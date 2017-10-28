@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http://spiel/1.0"
+            class="spiel.modell.SpielPackage"
+            genModel="model/spiel.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="*">
+         <view
+               id="spiel.ui.View"
+               minimized="false"
+               ratio="0.8f"
+               relationship="right"
+               relative="org.eclipse.ui.editorss"
+               standalone="true">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            class="spiel.ui.View"
+            id="spiel.ui.View"
+            name="Spiel"
+            restorable="true">
+      </view>
+   </extension>
+
+</plugin>

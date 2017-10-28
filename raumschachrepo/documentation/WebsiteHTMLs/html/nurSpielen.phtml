@@ -1,0 +1,68 @@
+<style type="text/css">
+.css-grd {
+	background: #2a6da9;
+	background: -moz-linear-gradient(top, #FF8000, #FFFFFF);
+	background: -webkit-gradient(linear, left top, left bottom, from(#55aaee),
+		to(#003366) );
+	color: #000000;
+	height: auto;
+	padding: 5px;
+	border: 1px solid #000;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+</style>
+
+<div class="css-grd">
+
+<?
+$hostName = "db2711.1und1.de";
+$userName = "dbo364758940";
+$password = "rsistCool";
+$dbName = "db364758940";
+$ip=@$REMOTE_ADDR;
+
+mysql_connect($hostName,$userName,$password) or die("Unable to connect to host $hostName");
+
+mysql_select_db($dbName) or die("Unable to select database $dbName");
+
+//Delete old entries.
+$delete="Update mapping SET ip='', description='', date=NULL where (TIMESTAMPDIFF(MINUTE, date, now()) > 30)";
+mysql_query($delete);
+	
+$user = mysql_query("Select * from mapping WHERE name='$_POST[name]' AND password='$_POST[password]'");
+
+//Are there any user with the given name/passwort?
+if(mysql_numrows($user)>0){
+	//Get available games.
+	$result = mysql_query("Select * from mapping WHERE date is not null");
+	// Determine the number of records returned
+	$number = mysql_numrows($result);
+	// find out the number of columns in result
+	$column_count = mysql_num_fields($result);
+
+	print ("<Table>");
+	print("<tr>");
+	print("<th>Spielname</th><th>Beschreibung</th><th>Punkte</th><th>Volatilität</th>");
+	print("</tr>\n");
+	while($row = mysql_fetch_row($result)) {
+		print("<tr>");
+		print("<td><a href=\"http://$row[0]/view?startup=view\">$row[1]</a></td> <td>$row[2]</td><td>$row[5]</td><td>$row[6]</td>");
+		print("</tr>");
+	}
+	print ("</Table>");
+}
+else{
+	echo "<script type='text/javascript'>";
+	echo "alert('Passwort/Nutzername ungültig');";
+	echo "window.location = 'http://www.s344813805.online.de/raumschach/html/horstGesucht.html';";
+	echo "</script>";
+}
+
+// Close the database connection
+mysql_close();
+
+?>
+
+</div>

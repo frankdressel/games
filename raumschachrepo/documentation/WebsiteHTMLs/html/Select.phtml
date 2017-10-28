@@ -1,0 +1,24 @@
+<?
+$hostName = "db2711.1und1.de";
+$userName = "dbo364758940";
+$password = "rsistCool";
+$dbName = "db364758940";
+
+mysql_connect($hostName,$userName,$password) or die("Unable to connect to host $hostName");
+
+mysql_select_db($dbName) or die("Unable to select database $dbName");
+
+$score = mysql_query(stripslashes($query));
+
+$resultArray=array();
+while($row = mysql_fetch_row($score)) {
+	for($counter=0;$counter<count($row);$counter++){
+		print $row[$counter] . ' ';
+	}
+	print "\n";
+}
+
+// Close the database connection
+mysql_close();
+
+?>

@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Spielfeld
+Bundle-SymbolicName: Spielfeld;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: spielfeld.Activator
+Require-Bundle: RaumschachModell;bundle-version="1.0.0",
+ org.eclipse.rap.ui,
+ org.eclipse.emf.ecore;bundle-version="2.6.1",
+ DatabaseWrapper;bundle-version="1.0.0",
+ javax.servlet;bundle-version="2.5.0",
+ Architecture;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: spielfeld.ui
+Service-Component: OSGI-INF/Spielfeld-uses-SpielProvider.xml

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.6"?>
+
+<target name="rapTarget" sequenceNumber="13">
+<locations>
+<location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.teneo.hibernate.feature.group" version="1.2.0.v201109010820"/>
+<repository location="http://download.eclipse.org/modeling/emf/teneo/updates/1.2.0/interim/"/>
+</location>
+<location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.apache.commons.logging.feature.group" version="1.1.1"/>
+<unit id="org.apache.log4j.feature.group" version="1.2.16"/>
+<unit id="org.dom4j.feature.group" version="1.6.1"/>
+<unit id="org.hibernate.feature.group" version="3.6.0.201107071603"/>
+<unit id="org.hsqldb.feature.group" version="1.8.1"/>
+<unit id="javax.persistence.feature.group" version="2.0.1"/>
+<repository location="http://www.elver.org/eclipse/update"/>
+</location>
+<location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.emf.rap.feature.group" version="2.7.0.v20110913-1526"/>
+<repository location="http://download.eclipse.org/releases/indigo"/>
+</location>
+<location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.rap.runtime.sdk.feature.group" version="1.4.0.20110614-2335"/>
+<repository location="http://download.eclipse.org/rt/rap/1.4/runtime"/>
+</location>
+<location includeAllPlatforms="false" includeMode="slicer" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.rcp.feature.group" version="3.7.0.v20110216-9DB5Fm1FpBGy_AaVz-mFamgY"/>
+<unit id="org.eclipse.emf.databinding.feature.group" version="1.2.0.v20110606-0949"/>
+<repository location="http://download.eclipse.org/releases/indigo"/>
+</location>
+</locations>
+</target>

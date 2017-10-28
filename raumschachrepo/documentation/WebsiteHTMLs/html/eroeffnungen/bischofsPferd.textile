@@ -1,0 +1,31 @@
+h1. Bischofs Pferd
+
+|!../images/4zuege.png!|!../images/eroeffnung.png!|
+
+h2. Was ist es
+
+Bischofs Pferd ist eine Eröffnung für das Raumschachspiel, welche innerhalb kurzer Zeit Läufer und Pferd ins Spiel bringen.
+
+h2. Wie wird 's gespielt
+
+Die Züge für Bischofs Pferd sind folgende (am Beispiel weiß):
+* Weißer Bauer von Bd2 -> Bd3: Verhindert das schwarze Einhorn auf Cd4
+* Weißer Bauer von Bb2 -> Bb3: Räumt das Feld für den weißen Läufer und bildet mit dem Bauern auf Bd3 einen effektiven Angriff auf Felder der Ebene C
+* Weißes Pferd von Ad1 -> Ae3: Sichert Position des künftigen Läufers
+* Weißer Läufer von Ba1 -> Be5
+
+h2. Bemerkungen
+
+Die beiden Bauern der B-Ebene sollten nur in sehr gut überlegten Fällen selber schlagen. Da sie sehr gut durch Bauern gesichert sind, können die Bauern, welche ja wesentlich für die Absicherung dieser Eröffnung sind, problemlos ersetzt werden. 
+
+h2. Vor-/Nachteile
+
+|*Vorteile*|*Nachteile*|
+|Falls die schwarze Dame auf ihrer ursprünglichen Position stand, wird diese angegriffen|Die schwarze Dame kann meist einfach wegziehen => Kein eindeutiger Vorteil im weiteren Spiel|
+|Position, welche nicht in wenigen Zügen angreifbar ist||
+|Macht der Dame den Weg über die Ebenendiagonalen frei||
+|Schafft ein freies Feld neben dem  König||
+|Zwei schwere Figuren in 4 Züge||
+
+!../images/bischofsPferd.png!
+

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="Store-uses-SpielProvider">
+   <implementation class="store.Activator"/>
+   <reference bind="bindISpielProvider" cardinality="1..1" interface="architecture.ISpielProvider" name="ISpielProvider" policy="static"/>
+</scr:component>
