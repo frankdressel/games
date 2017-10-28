@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product name="nexus" id="moduliertersingvogel.nexus.basics.product" application="org.eclipse.gyrex.boot.server" useFeatures="false" includeLaunchers="true">
+
+   <configIni use="default">
+   </configIni>
+
+   <launcherArgs>
+      <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts</vmArgsMac>
+   </launcherArgs>
+
+   <plugins>
+      <plugin id="ch.qos.logback.classic"/>
+      <plugin id="ch.qos.logback.core"/>
+      <plugin id="ch.qos.logback.slf4j" fragment="true"/>
+      <plugin id="com.ibm.icu.base"/>
+      <plugin id="javax.annotation"/>
+      <plugin id="javax.inject"/>
+      <plugin id="javax.persistence"/>
+      <plugin id="javax.servlet"/>
+      <plugin id="javax.ws.rs"/>
+      <plugin id="moduliertersingvogel.nexus.basics"/>
+      <plugin id="moduliertersingvogel.nexus.model"/>
+      <plugin id="org.apache.commons.codec"/>
+      <plugin id="org.apache.commons.fileupload"/>
+      <plugin id="org.apache.commons.httpclient"/>
+      <plugin id="org.apache.commons.io"/>
+      <plugin id="org.apache.commons.lang"/>
+      <plugin id="org.apache.derby"/>
+      <plugin id="org.apache.hadoop.zookeeper"/>
+      <plugin id="org.apache.lucene"/>
+      <plugin id="org.apache.lucene.core"/>
+      <plugin id="org.apache.lucene.grouping"/>
+      <plugin id="org.apache.lucene.highlighter"/>
+      <plugin id="org.apache.lucene.misc"/>
+      <plugin id="org.apache.lucene.queries"/>
+      <plugin id="org.apache.lucene.spellchecker"/>
+      <plugin id="org.apache.solr.client.solrj"/>
+      <plugin id="org.apache.solr.core"/>
+      <plugin id="org.codehaus.jackson.core"/>
+      <plugin id="org.codehaus.jackson.jaxrs"/>
+      <plugin id="org.codehaus.jackson.mapper"/>
+      <plugin id="org.eclipse.core.commands"/>
+      <plugin id="org.eclipse.core.contenttype"/>
+      <plugin id="org.eclipse.core.databinding"/>
+      <plugin id="org.eclipse.core.databinding.beans"/>
+      <plugin id="org.eclipse.core.databinding.observable"/>
+      <plugin id="org.eclipse.core.databinding.property"/>
+      <plugin id="org.eclipse.core.expressions"/>
+      <plugin id="org.eclipse.core.jobs"/>
+      <plugin id="org.eclipse.core.runtime"/>
+      <plugin id="org.eclipse.core.runtime.compatibility.registry" fragment="true"/>
+      <plugin id="org.eclipse.e4.core.di"/>
+      <plugin id="org.eclipse.emf.common"/>
+      <plugin id="org.eclipse.emf.ecore"/>
+      <plugin id="org.eclipse.equinox.app"/>
+      <plugin id="org.eclipse.equinox.common"/>
+      <plugin id="org.eclipse.equinox.ds"/>
+      <plugin id="org.eclipse.equinox.frameworkadmin"/>
+      <plugin id="org.eclipse.equinox.http.registry"/>
+      <plugin id="org.eclipse.equinox.http.servlet"/>
+      <plugin id="org.eclipse.equinox.p2.core"/>
+      <plugin id="org.eclipse.equinox.p2.director"/>
+      <plugin id="org.eclipse.equinox.p2.engine"/>
+      <plugin id="org.eclipse.equinox.p2.metadata"/>
+      <plugin id="org.eclipse.equinox.p2.metadata.repository"/>
+      <plugin id="org.eclipse.equinox.p2.operations"/>
+      <plugin id="org.eclipse.equinox.p2.repository"/>
+      <plugin id="org.eclipse.equinox.preferences"/>
+      <plugin id="org.eclipse.equinox.registry"/>
+      <plugin id="org.eclipse.equinox.security"/>
+      <plugin id="org.eclipse.equinox.security.macosx" fragment="true"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86" fragment="true"/>
+      <plugin id="org.eclipse.equinox.security.win32.x86_64" fragment="true"/>
+      <plugin id="org.eclipse.equinox.simpleconfigurator"/>
+      <plugin id="org.eclipse.equinox.util"/>
+      <plugin id="org.eclipse.gemini.jpa"/>
+      <plugin id="org.eclipse.gyrex.admin.ui"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.cloud"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.cloud.source"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.context"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.context.source"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.http"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.http.jetty"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.http.jetty.source"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.http.source"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.jobs"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.jobs.source"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.logback"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.logback.source"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.p2"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.p2.source"/>
+      <plugin id="org.eclipse.gyrex.admin.ui.source"/>
+      <plugin id="org.eclipse.gyrex.boot"/>
+      <plugin id="org.eclipse.gyrex.boot.source"/>
+      <plugin id="org.eclipse.gyrex.boot.tests"/>
+      <plugin id="org.eclipse.gyrex.boot.tests.source"/>
+      <plugin id="org.eclipse.gyrex.cloud"/>
+      <plugin id="org.eclipse.gyrex.cloud.source"/>
+      <plugin id="org.eclipse.gyrex.common"/>
+      <plugin id="org.eclipse.gyrex.common.source"/>
+      <plugin id="org.eclipse.gyrex.context"/>
+      <plugin id="org.eclipse.gyrex.context.source"/>
+      <plugin id="org.eclipse.gyrex.context.tests"/>
+      <plugin id="org.eclipse.gyrex.context.tests.source"/>
+      <plugin id="org.eclipse.gyrex.frameworklogadapter" fragment="true"/>
+      <plugin id="org.eclipse.gyrex.frameworklogadapter.source"/>
+      <plugin id="org.eclipse.gyrex.http"/>
+      <plugin id="org.eclipse.gyrex.http.equinoxhttpservice"/>
+      <plugin id="org.eclipse.gyrex.http.equinoxhttpservice.source"/>
+      <plugin id="org.eclipse.gyrex.http.jetty"/>
+      <plugin id="org.eclipse.gyrex.http.jetty.source"/>
+      <plugin id="org.eclipse.gyrex.http.log"/>
+      <plugin id="org.eclipse.gyrex.http.log.source"/>
+      <plugin id="org.eclipse.gyrex.http.registry"/>
+      <plugin id="org.eclipse.gyrex.http.registry.source"/>
+      <plugin id="org.eclipse.gyrex.http.source"/>
+      <plugin id="org.eclipse.gyrex.http.tests"/>
+      <plugin id="org.eclipse.gyrex.http.tests.source"/>
+      <plugin id="org.eclipse.gyrex.jobs"/>
+      <plugin id="org.eclipse.gyrex.jobs.source"/>
+      <plugin id="org.eclipse.gyrex.logback.config"/>
+      <plugin id="org.eclipse.gyrex.logback.config.source"/>
+      <plugin id="org.eclipse.gyrex.model.common"/>
+      <plugin id="org.eclipse.gyrex.model.common.source"/>
+      <plugin id="org.eclipse.gyrex.monitoring"/>
+      <plugin id="org.eclipse.gyrex.monitoring.source"/>
+      <plugin id="org.eclipse.gyrex.p2"/>
+      <plugin id="org.eclipse.gyrex.p2.source"/>
+      <plugin id="org.eclipse.gyrex.persistence"/>
+      <plugin id="org.eclipse.gyrex.persistence.context.preferences"/>
+      <plugin id="org.eclipse.gyrex.persistence.context.preferences.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.derby"/>
+      <plugin id="org.eclipse.gyrex.persistence.derby.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.derby.tests"/>
+      <plugin id="org.eclipse.gyrex.persistence.derby.tests.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.eclipselink"/>
+      <plugin id="org.eclipse.gyrex.persistence.eclipselink.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.jdbc"/>
+      <plugin id="org.eclipse.gyrex.persistence.jdbc.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.mongodb"/>
+      <plugin id="org.eclipse.gyrex.persistence.mongodb.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.nondurable.map"/>
+      <plugin id="org.eclipse.gyrex.persistence.nondurable.map.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.solr"/>
+      <plugin id="org.eclipse.gyrex.persistence.solr.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.source"/>
+      <plugin id="org.eclipse.gyrex.persistence.tests"/>
+      <plugin id="org.eclipse.gyrex.persistence.tests.source"/>
+      <plugin id="org.eclipse.gyrex.preferences"/>
+      <plugin id="org.eclipse.gyrex.preferences.source"/>
+      <plugin id="org.eclipse.gyrex.preferences.tests"/>
+      <plugin id="org.eclipse.gyrex.preferences.tests.source"/>
+      <plugin id="org.eclipse.gyrex.search"/>
+      <plugin id="org.eclipse.gyrex.search.source"/>
+      <plugin id="org.eclipse.gyrex.search.tests"/>
+      <plugin id="org.eclipse.gyrex.search.tests.source"/>
+      <plugin id="org.eclipse.gyrex.server.defaultroles"/>
+      <plugin id="org.eclipse.gyrex.server.defaultroles.source"/>
+      <plugin id="org.eclipse.gyrex.server.tests"/>
+      <plugin id="org.eclipse.gyrex.server.tests.source"/>
+      <plugin id="org.eclipse.gyrex.services.common"/>
+      <plugin id="org.eclipse.gyrex.services.common.source"/>
+      <plugin id="org.eclipse.help"/>
+      <plugin id="org.eclipse.jetty.continuation"/>
+      <plugin id="org.eclipse.jetty.http"/>
+      <plugin id="org.eclipse.jetty.io"/>
+      <plugin id="org.eclipse.jetty.security"/>
+      <plugin id="org.eclipse.jetty.server"/>
+      <plugin id="org.eclipse.jetty.servlet"/>
+      <plugin id="org.eclipse.jetty.util"/>
+      <plugin id="org.eclipse.orbit.mongodb"/>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.services"/>
+      <plugin id="org.eclipse.persistence.antlr"/>
+      <plugin id="org.eclipse.persistence.asm"/>
+      <plugin id="org.eclipse.persistence.core"/>
+      <plugin id="org.eclipse.persistence.jpa"/>
+      <plugin id="org.eclipse.persistence.jpa.equinox.weaving" fragment="true"/>
+      <plugin id="org.eclipse.persistence.nosql" fragment="true"/>
+      <plugin id="org.eclipse.rap.jface"/>
+      <plugin id="org.eclipse.rap.jface.databinding"/>
+      <plugin id="org.eclipse.rap.rwt"/>
+      <plugin id="org.eclipse.rap.rwt.osgi"/>
+      <plugin id="org.eclipse.rap.rwt.supplemental.filedialog"/>
+      <plugin id="org.eclipse.rap.rwt.supplemental.fileupload"/>
+      <plugin id="org.eclipse.rap.ui"/>
+      <plugin id="org.eclipse.rap.ui.forms"/>
+      <plugin id="org.eclipse.rap.ui.views"/>
+      <plugin id="org.eclipse.rap.ui.workbench"/>
+      <plugin id="org.junit"/>
+      <plugin id="org.kohsuke.args4j"/>
+      <plugin id="org.quartz"/>
+      <plugin id="org.sat4j.core"/>
+      <plugin id="org.sat4j.pb"/>
+      <plugin id="org.slf4j.api"/>
+      <plugin id="org.slf4j.jcl"/>
+      <plugin id="org.slf4j.log4j"/>
+      <plugin id="osgi.enterprise"/>
+   </plugins>
+
+
+</product>
