@@ -6,7 +6,8 @@ export default Ember.Component.extend({
             this.sendAction('berechnet');
         },
         korrigiert(){
-            this.get('model').set('result', parseInt(this.get('value31')+''+this.get('value32')+''+this.get('value33')));
+            this.get('model').get('results')[this.get('model').get('counter')].result=
+                parseInt(this.get('value31')+''+this.get('value32')+''+this.get('value33'));
             this.sendAction('korrigiert');
             this.set('clearon', this.get('clearon')+1);
         },
@@ -29,9 +30,11 @@ export default Ember.Component.extend({
         }
     },
     update(){
-        let firstString=""+this.get('model').get('first');
-        let secondString=""+this.get('model').get('second');
-        let thirdString=""+this.get('model').get('third');
+        this.set('plusminus', this.get('model').get('results')[this.get('model').get('counter')].plusminus)
+
+        let firstString=""+this.get('model').get('results')[this.get('model').get('counter')].first;
+        let secondString=""+this.get('model').get('results')[this.get('model').get('counter')].second;
+        let thirdString=""+this.get('model').get('results')[this.get('model').get('counter')].third;
 
         for(let i=1; i<=3;i++){
             for(let j=1;j<=3;j++){

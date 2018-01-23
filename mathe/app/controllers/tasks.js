@@ -9,21 +9,25 @@ export default Ember.Controller.extend({
         korrigiert(){
 
             let results=this.get('model').get('results').map(function(e){return e;});
-            let counter=results.reduce(function(p, c){return p+(c==null?0:1)}, 0);
-            if(this.model.get('result')==this.model.get('third')){
-                results[counter]={correct:true, task: ''+this.get('model').get('first')+'<br>'+this.get('model').get('plusminus')+'<br>'+this.get('model').get('second')};
+            let counter=results.reduce(function(p, c){return p+(c.result?1:0)}, 0);
+            if(results[counter-1].result==results[counter-1].third){
+                results[counter-1].set('correct', true);
             }
             else{
-                results[counter]={correct:false, task: ''+this.get('model').get('first')+'<br>'+this.get('model').get('plusminus')+'<br>'+this.get('model').get('second')};
+                results[counter-1].set('correct', false);
             }
-            let orig=this.get('model').get('results');
-            orig.clear();
-            results.forEach(function(e){orig.pushObject(e);});
 
-            counter=counter+1;
-            if(counter<this.get('model').get('results').length){
-                this.initialise(this.get('model'));
+            this.get('model').set('results', results);
+            this.get('model').set('counter', counter);
+            if(counter==this.get('model').get('results').length){
+                this.get('model').set('done', true);
             }
+
+            this.get('model').set('startState', true);
+            this.get('model').set('berechnetState', false);
+        },
+        lernen(){
+            window.location.replace('https://klexikon.zum.de/wiki/Spezial:Zuf%C3%A4llige_Seite');
         }
     },
     initialise(model){
@@ -33,29 +37,33 @@ export default Ember.Controller.extend({
             return Math.floor(Math.random() * (max - min)) + min;
         }
 
-        let first=0;
-        let second=0;
-        let third=0;
-        let plusminus='+';
-        while(true){
-            first=getRandomInt(0, 1000);
-            second=getRandomInt(0, 1000);
-            plusminus=getRandomInt(0, 2)==0?'-':'+';
-            if(plusminus==='+' && first+second<=1000){
-                third=first+second;
-                break;
+        model.set('counter', 0);
+        for(let i=0;i<model.results.length;i++){
+            let first=0;
+            let second=0;
+            let third=0;
+            let plusminus='+';
+            while(true){
+                first=getRandomInt(0, 1000);
+                second=getRandomInt(0, 1000);
+                plusminus=getRandomInt(0, 2)==0?'-':'+';
+                if(plusminus==='+' && first+second<=1000){
+                    third=first+second;
+                    break;
+                }
+                if(plusminus==='-' && first-second>=0){
+                    third=first-second;
+                    break;
+                }
             }
-            if(plusminus==='-' && first-second>=0){
-                third=first-second;
-                break;
-            }
+            model.get('results')[i]={
+                first: first,
+                second: second,
+                third: third,
+                result: 0,
+                plusminus: plusminus,
+                correct: null
+            };
         }
-        model.set('first', first);
-        model.set('second', second);
-        model.set('third', third);
-        model.set('result', 0);
-        model.set('plusminus', plusminus);
-        model.set('startState', true);
-        model.set('berechnetState', false);
     },
 });

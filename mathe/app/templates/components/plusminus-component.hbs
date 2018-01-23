@@ -1,9 +1,9 @@
 <div style="display: flex">
     {{#each model.results as |result index|}}
         {{#if (eq result.correct true)}}
-            <button type="button" style="flex-grow: 1" class='btn btn-success'>{{{result.task}}}</button>
+            <button type="button" style="flex-grow: 1" class='btn btn-success'>{{result.first}}<br>{{result.plusminus}}<br>{{result.second}}</button>
         {{else if (eq result.correct false)}}
-            <button type="button" style="flex-grow: 1" class='btn btn-danger'>{{{result.task}}}</button>
+            <button type="button" style="flex-grow: 1" class='btn btn-danger'>{{result.first}}<br>{{result.plusminus}}<br>{{result.second}}</button>
         {{else}}
             <button type="button" style="flex-grow: 1" class='btn btn-primary'>{{index}}</button>
         {{/if}}
