@@ -30,6 +30,9 @@ export default Ember.Component.extend({
         }
     },
     update(){
+        if(this.get('model').get('done')){
+            return;
+        }
         this.set('plusminus', this.get('model').get('results')[this.get('model').get('counter')].plusminus)
 
         let firstString=""+this.get('model').get('results')[this.get('model').get('counter')].first;

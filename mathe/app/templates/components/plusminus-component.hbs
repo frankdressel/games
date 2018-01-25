@@ -9,6 +9,7 @@
         {{/if}}
     {{/each}}
 </div>
+{{#unless model.done}}
 <div class="container-fluid">
     <div class="row justify-content-md-center">
         <div type="text" class="col-md-1 offset-md-1"disabled>{{value11}}</div>
@@ -37,3 +38,11 @@
         </div>
     {{/if}}
 </div>
+{{/unless}}
+{{#if model.done}}
+<div class="container-fluid">
+    <div class="row justify-content-md-center">
+        <p class="col-md-4">Super. Du has 10 Aufgaben gerechnet!</p>
+    </div>
+</div>
+{{/if}}
