@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<site>
-   <feature url="features/VerwaltungFeature_1.0.0.qualifier.jar" id="VerwaltungFeature" version="1.0.0.qualifier">
-      <category name="Raumschach"/>
-   </feature>
-   <category-def name="Raumschach" label="Raumschach"/>
-</site>
