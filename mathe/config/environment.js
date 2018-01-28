@@ -23,6 +23,11 @@ module.exports = function(environment) {
     }
   };
 
+  if (environment === 'production') {
+    ENV.rootURL = '/frankdressel/games/mathe';
+    ENV.locationType = 'hash';
+  }
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
