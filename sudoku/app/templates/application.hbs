@@ -1,0 +1,9 @@
+{{#link-to 'application' tagName="h1"}}
+    Sudoku Generator
+{{/link-to}}
+
+<button type="button" class="btn btn-success" {{action "easy"}}>Leicht</button>
+<button type="button" class="btn btn-warning" {{action "medium"}}>Mittel</button>
+<button type="button" class="btn btn-danger" {{action "difficult"}}>Schwer</button>
+
+{{outlet}}

@@ -1,0 +1,27 @@
+.blockwrapper {
+    width: 285px;
+    height: 285px;
+    display: grid;
+    grid-template-columns: repeat(3, 75px);
+    grid-template-rows: 75px 75px 75px ;
+}
+.wrapper {
+    width: 75px;
+    height: 75px;
+    display: grid;
+    grid-template-columns: repeat(3, 25px);
+    grid-template-rows: 25px 25px 25px ;
+}
+.blockbox {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.blockbox:nth-child(even) {
+  background-color: #ccc;
+  color: #000;
+}
+.box {
+  text-align: center;
+}
