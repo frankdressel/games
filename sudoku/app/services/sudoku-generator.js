@@ -80,6 +80,27 @@ export default Service.extend({
         }
         return n;
     },
+    difficulty(grid){
+        let n=this.copy(grid);
+        let diffscore=1;
+        for(let i=0;i<n.length;i++){
+            for(let j=0;j<n[i].length;j++){
+                if(n[i][j]==null){
+                    let num=0;
+                    for(let s of this.symbols){
+                        n[i][j]=s;
+                        if(this.testBox(n, i, j) && this.testColumn(n, i) && this.testRow(n, j)){
+                            num=num+1;
+                        }
+                    }
+                    n[i][j]=null;
+                    diffscore=diffscore*num;
+                }
+            }
+        }
+
+        return Math.log(diffscore);
+    },
     generate(){
         let grid=new Array(9);
         for(let i=0;i<this.length;i++){
@@ -95,8 +116,10 @@ export default Service.extend({
         
         let puzzle=this.copy(grid);
         let counterNoResult=0;
+        let counterWhiles=0;
 
-        while(true){
+        while(counterWhiles<1000000){
+            counterWhiles++;
             let i=Math.floor(Math.random()*this.length);
             let j=Math.floor(Math.random()*this.length);
 
@@ -106,14 +129,19 @@ export default Service.extend({
             let result=this.next(n, 0, false);
             let num=result.length;
             
-            if(num>1){
+            let ds=this.difficulty(n);
+            if(ds>diffscore){
                 break;
+            }
+            if(num>1){
+                puzzle=this.copy(grid);
+                continue;
             }
             if(num==1){
                 puzzle=this.copy(n);
             }
             if(num==0){
-                if(counterNoResult>=100){
+                if(counterNoResult>=10000000){
                     puzzle=this.copy(grid);
                     counterNoResult=0;
                 }

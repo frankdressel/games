@@ -10,6 +10,6 @@ export default Route.extend({
     },
     model(){
         let sudoku=this.get('sudokuGenerator').generate();
-        return this.get('sudokuGenerator').puzzle(sudoku);
+        return this.get('sudokuGenerator').puzzle(sudoku, 20);
     }
 });
