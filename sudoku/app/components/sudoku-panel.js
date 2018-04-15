@@ -1,4 +1,5 @@
 import Component from '@ember/component';
+import { A } from '@ember/array';
 
 export default Component.extend({
     init(){
@@ -19,5 +20,5 @@ export default Component.extend({
             }
         }
     },
-    blocks: []
+    blocks:A() 
 });
