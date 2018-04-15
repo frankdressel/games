@@ -1,9 +1,15 @@
-{{#link-to 'application' tagName="h1"}}
-    Sudoku Generator
-{{/link-to}}
+<div class="container-fluid">
+    {{#link-to 'application' tagName="h1"}}
+        Sudoku Generator
+    {{/link-to}}
 
-<button type="button" class="btn btn-success" {{action "easy"}}>Leicht</button>
-<button type="button" class="btn btn-warning" {{action "medium"}}>Mittel</button>
-<button type="button" class="btn btn-danger" {{action "difficult"}}>Schwer</button>
+    <div class="row">
+        <button type="button" class="col-md-4 btn btn-success" {{action "easy"}}>Leicht</button>
+        <button type="button" class="col-md-4 btn btn-warning" {{action "medium"}}>Mittel</button>
+        <button type="button" class="col-md-4 btn btn-danger" {{action "difficult"}}>Schwer</button>
+    </div>
 
-{{outlet}}
+    <div class="d-flex p-2 justify-content-center">
+        {{outlet}}
+    </div>
+</div>
