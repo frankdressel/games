@@ -5,8 +5,7 @@ export default Component.extend({
         this._super(...arguments);
     },
     willRender(){
-        console.log("will render");
-        let model=this.get("model").puzzle;
+        let model=this.get("model");
         this.get("blocks").clear();
         for(let i=0;i<model.length/3;i++){
             for(let j=0;j<model[i].length/3;j++){
