@@ -4,7 +4,7 @@ module.exports = function(environment) {
   let ENV = {
     modulePrefix: 'sudoku',
     environment,
-    rootURL: '/',
+    rootURL: '/games/sudoku',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
