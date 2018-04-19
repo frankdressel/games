@@ -6,7 +6,7 @@ export default Component.extend({
         this._super(...arguments);
     },
     willRender(){
-        let model=this.get("model");
+        let model=this.get("model").get('sudoku');
         this.get("blocks").clear();
         for(let i=0;i<model.length/3;i++){
             for(let j=0;j<model[i].length/3;j++){
@@ -28,9 +28,10 @@ export default Component.extend({
             var worker = new Worker('sudokugenerator.js');
             worker.addEventListener('message', function(e) {
                 that.set('solved', e.data);
+                that.get('model').set('dirty', false);
             }, false);
-            let n=this.get("model").map(function(row){return row.map(function(cell){return cell.symbol==""?null:cell.symbol})});
+            let n=this.get("model").get('sudoku').map(function(row){return row.map(function(cell){return cell.symbol==""?null:cell.symbol})});
             worker.postMessage({'cmd':'check', 'puzzle': n});
-        }
+        },
     }
 });

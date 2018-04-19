@@ -1,6 +1,7 @@
 import Route from '@ember/routing/route';
 import RSVP from 'rsvp';
 const Cell = Ember.Object.extend({})
+const Sudoku = Ember.Object.extend({})
 
 export default Route.extend({
     queryParams: {
@@ -14,6 +15,7 @@ export default Route.extend({
             worker.addEventListener('message', function(e) {
                 let rawsudoku=e.data;
                 let n=new Array(rawsudoku.length);
+                let sudoku=Sudoku.create({sudoku: n, dirty: false});
                 for(let i=0;i<n.length;i++){
                     n[i]=[null, null, null, null, null, null, null, null, null];
                 }
@@ -25,10 +27,13 @@ export default Route.extend({
                         else{
                             n[i][j]=Cell.create({generated: false, symbol: ''});
                         }
+                        n[i][j].addObserver('symbol', function(){
+                            sudoku.set('dirty', true);
+                        });
                     }
                 } 
 
-                resolve(n);
+                resolve(sudoku);
             }, false);
             worker.postMessage({'cmd':'puzzle', 'diffscore': 20});
         });

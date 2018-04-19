@@ -14,5 +14,5 @@
 {{#if solved}}
     <div>Gelöst!</div>
 {{else}}
-    <button class="btn" {{action "check"}}>Prüfen</button>
+    <button class="btn" {{action "check"}} disabled={{not model.dirty}}>Prüfen</button> Leider noch nicht gelöst.
 {{/if}}
