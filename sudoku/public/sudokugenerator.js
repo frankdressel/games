@@ -191,10 +191,27 @@ addEventListener('message', function(e) {
         return true;
     };
 
-    let data=e.data;
-    let fullSudoku=generate();
-    let result=puzzle(fullSudoku, data.diffscore);
+    if(e.data.cmd=="puzzle"){
+        let data=e.data;
+        let fullSudoku=generate();
+        let result=puzzle(fullSudoku, data.diffscore);
 
-    postMessage(result);
-    self.close();
+        postMessage(result);
+        self.close();
+    }
+    if(e.data.cmd=="check"){
+        let ok=solved(e.data.puzzle);
+        for(let i=0;i<e.data.puzzle.length;i++){
+            ok=ok && testColumn(e.data.puzzle, i);
+            for(let j=0;j<e.data.puzzle[i].length;j++){
+                ok=ok && testRow(e.data.puzzle, j);
+                ok=ok && testBox(e.data.puzzle, i, j)
+                if(!ok){
+                    break;
+                }
+            }
+        }
+        postMessage(ok);
+        self.close();
+    }
 });

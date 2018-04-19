@@ -20,5 +20,17 @@ export default Component.extend({
             }
         }
     },
-    blocks:A() 
+    blocks:A(),
+    solved: false,
+    actions:{
+        check(){
+            let that=this;
+            var worker = new Worker('sudokugenerator.js');
+            worker.addEventListener('message', function(e) {
+                that.set('solved', e.data);
+            }, false);
+            let n=this.get("model").map(function(row){return row.map(function(cell){return cell.symbol==""?null:cell.symbol})});
+            worker.postMessage({'cmd':'check', 'puzzle': n});
+        }
+    }
 });

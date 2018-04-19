@@ -29,7 +29,7 @@
 .sk-cube-grid {
   width: 40px;
   height: 40px;
-  margin: 122px 122px;
+  margin: 122px auto;
 }
 
 .sk-cube-grid .sk-cube {

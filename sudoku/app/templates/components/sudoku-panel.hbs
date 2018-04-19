@@ -2,8 +2,17 @@
 {{#each blocks as |block|}}
     <div class="wrapper blockbox">
     {{#each block as |cell|}}
-        <div class="box">{{cell}}</div>
+        {{#if cell.generated}}
+            <div class="box">{{cell.symbol}}</div>
+        {{else}}
+            {{input class="box" value=cell.symbol}}
+        {{/if}}
     {{/each}}
     </div>
 {{/each}}
 </div>
+{{#if solved}}
+    <div>Gelöst!</div>
+{{else}}
+    <button class="btn" {{action "check"}}>Prüfen</button>
+{{/if}}
