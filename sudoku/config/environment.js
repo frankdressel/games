@@ -22,6 +22,12 @@ module.exports = function(environment) {
       // when it is created
     }
   };
+  ENV.serviceWorker = {
+    enabled: true,
+    debug: true,
+
+    networkFirstURLs: ['/']
+  };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;

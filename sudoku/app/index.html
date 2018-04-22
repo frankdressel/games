@@ -20,6 +20,10 @@
     <script src="{{rootURL}}assets/vendor.js"></script>
     <script src="{{rootURL}}assets/sudoku.js"></script>
 
+    <script>
+        navigator.serviceWorker.register('service-worker.js');
+    </script>
+
     {{content-for "body-footer"}}
   </body>
 </html>

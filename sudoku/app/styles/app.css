@@ -1,9 +1,9 @@
 .blockwrapper {
-    width: 300px;
-    height: 300px;
+    width: 306px;
+    height: 306px;
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-template-rows: 100px 100px 100px ;
+    grid-template-columns: repeat(3, 102px);
+    grid-template-rows: 102px 102px 102px ;
 }
 .wrapper {
     width: 100px;
