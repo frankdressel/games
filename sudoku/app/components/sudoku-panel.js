@@ -4,6 +4,7 @@ import { A } from '@ember/array';
 export default Component.extend({
     init(){
         this._super(...arguments);
+        this.symbols=[1, 2, 3, 4, 5, 6, 7, 8, 9];
     },
     willRender(){
         let model=this.get("model").get('sudoku');

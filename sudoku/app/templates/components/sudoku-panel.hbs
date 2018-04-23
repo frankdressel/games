@@ -5,7 +5,7 @@
         {{#if cell.generated}}
             <div class="box">{{cell.symbol}}</div>
         {{else}}
-            {{input class="box" value=cell.symbol}}
+            {{#selectable-field symbols=symbols cell=cell}}{{/selectable-field}}
         {{/if}}
     {{/each}}
     </div>
