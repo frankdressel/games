@@ -7,11 +7,14 @@ export default Component.extend({
             Ember.components=[];
         }
         let that=this;
-        Ember.components['selectable-field']={setSymbol:function(s){
+        let index=Ember.components.length;
+        this.buttonid='button'+index;
+        Ember.components.push({setSymbol:function(s){
             that.get('cell').set('symbol', s);
             console.log(s);
-        }};
-        this.content=this.get('symbols').map(function(s){return '<button class="btn" onClick=Ember.components["selectable-field"].setSymbol('+s+')>'+s+'</button>';}).reduce(function(p, c){return p+c;});
+            Ember.$('#'+that.buttonid).popover('hide');
+        }});
+        this.content=this.get('symbols').map(function(s){return '<button class="btn" onClick=Ember.components['+index+'].setSymbol('+s+')>'+s+'</button>';}).reduce(function(p, c){return p+c;});
     },
     didRender(){
         $(document).ready(function(){
