@@ -1,21 +1,18 @@
 .blockwrapper {
     width: 306px;
     height: 306px;
-    display: grid;
-    grid-template-columns: repeat(3, 102px);
-    grid-template-rows: 102px 102px 102px ;
 }
-.wrapper {
-    width: 100px;
-    height: 100px;
-    display: grid;
-    grid-template-columns: repeat(3, 33px);
-    grid-template-rows: 33px 33px 33px ;
+.blockwrapper > .row {
+    width: 306px;
+    height: 306px;
 }
 .blockbox {
   background-color: #444;
   color: #fff;
   border-radius: 5px;
+}
+.blockbox > .row{
+    height: 100%;
 }
 
 .blockbox:nth-child(even) {
@@ -24,6 +21,8 @@
 }
 .box {
   text-align: center;
+  height: 33%;
+  width: 33%;
 }
 /*Taken from: http://tobiasahlin.com/spinkit/*/
 .sk-cube-grid {

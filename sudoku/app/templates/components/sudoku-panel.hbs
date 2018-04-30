@@ -1,15 +1,19 @@
-<div class="blockwrapper">
-{{#each blocks as |block|}}
-    <div class="wrapper blockbox">
-    {{#each block as |cell|}}
-        {{#if cell.generated}}
-            <div class="box">{{cell.symbol}}</div>
-        {{else}}
-            {{#selectable-field symbols=symbols cell=cell}}{{/selectable-field}}
-        {{/if}}
+<div class="blockwrapper container-fluid">
+    <div class="row">
+    {{#each blocks as |block|}}
+        <div class="col-4 blockbox">
+        <div class="row">
+        {{#each block as |cell|}}
+            {{#if cell.generated}}
+                <div class="box col-4 px-1">{{cell.symbol}}</div>
+            {{else}}
+                {{#selectable-field class="box col-4 px-1" symbols=symbols cell=cell}}{{/selectable-field}}
+            {{/if}}
+        {{/each}}
+        </div>
+        </div>
     {{/each}}
     </div>
-{{/each}}
 </div>
 {{#if solved}}
     <div>Gelöst!</div>
