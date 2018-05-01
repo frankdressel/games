@@ -1,19 +1,17 @@
-<div class="blockwrapper container-fluid">
-    <div class="row">
-    {{#each blocks as |block|}}
-        <div class="col-4 blockbox">
-        <div class="row">
-        {{#each block as |cell|}}
+<div class="blockwrapper">
+    {{#each blocks as |block blockindex|}}
+        <div class="blockbox blockbox-{{blockindex}}">
+        {{#each block as |cell cellindex|}}
             {{#if cell.generated}}
-                <div class="box col-4 px-1">{{cell.symbol}}</div>
+                <div class="box box-{{cellindex}}"><span>{{cell.symbol}}</span></div>
             {{else}}
-                {{#selectable-field class="box col-4 px-1" symbols=symbols cell=cell}}{{/selectable-field}}
+                <div class="box box-{{cellindex}}">
+                    {{#selectable-field class="symbolbutton" symbols=symbols cell=cell}}{{/selectable-field}}
+                </div>
             {{/if}}
         {{/each}}
         </div>
-        </div>
     {{/each}}
-    </div>
 </div>
 {{#if solved}}
     <div>Gelöst!</div>
