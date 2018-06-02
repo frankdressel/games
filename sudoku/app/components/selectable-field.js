@@ -11,8 +11,7 @@ export default Component.extend({
         this.buttonid='button'+index;
         Ember.components.push({setSymbol:function(s){
             that.get('cell').set('symbol', s);
-            console.log(s);
-            Ember.$('#'+that.buttonid).popover('hide');
+            $('[data-toggle="popover"]').popover('hide');
         }});
         this.content=this.get('symbols').map(function(s){return '<button class="btn" onClick=Ember.components['+index+'].setSymbol('+s+')>'+s+'</button>';}).reduce(function(p, c){return p+c;});
     },

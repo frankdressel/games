@@ -22,7 +22,7 @@ addEventListener('message', function(e) {
         }
         return newAr;
     };
-    function next(grid, branch, stop){
+    function next(grid, branch, unique){
         let np=nextPossible(grid);
         let i=np[0];
         let j=np[1];
@@ -44,14 +44,20 @@ addEventListener('message', function(e) {
 
             if(solved(n) && testColumn(n, i) && testRow(n, j) && testBox(n, i, j)){
                 results.push(n);
-                if(stop && results.length>0){
+                if(unique && results.length>0){
+                    return results;
+                }
+                if(!unique && results.length>1){
                     return results;
                 }
             }
             else{
                 if(testColumn(n, i) && testRow(n, j) && testBox(n, i, j)){
-                    results=results.concat(next(n, branch+1, stop));
-                    if(stop && results.length>0){
+                    results=results.concat(next(n, branch+1, unique));
+                    if(unique && results.length>0){
+                        return results;
+                    }
+                    if(!unique && results.length>1){
                         return results;
                     }
                 }
