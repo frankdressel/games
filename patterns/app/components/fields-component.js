@@ -5,7 +5,7 @@ export default Ember.Component.extend({
         this._super(...arguments);
         this.set('size', 10);
         this.set('width', 960);
-        this.set('height', 500);
+        this.set('height', 960);
     },
     fillFunction(d){
         return d3.interpolateOranges(d['noise']['value']);
@@ -38,7 +38,7 @@ export default Ember.Component.extend({
                 return 'translate(' + that.get('width') / 2 + ',' + that.get('height') / 2 + ')'
             }).
             on('click', function(d, i){
-                that.get('clicked')(d, that.get('data'));
+                that.get('clicked')(d, that.get('data'), Math.floor(Math.random() * Math.floor(7)));
                 //d['value'] = (d['value'] + 1) % 2;
                 d3.select(this).attr('fill', that.get('fillFunction')(d));
             });
