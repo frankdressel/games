@@ -17,7 +17,6 @@ export default Ember.Route.extend({
                 }
                 delete cell['noise']['time'][time];
             }
-            console.log(Array.from(data).filter(([key, value])=>value['value']==1));
         },
         noise(cell, data){
             function dist(cell1, cell2){
@@ -40,8 +39,8 @@ export default Ember.Route.extend({
                     let cell2 = data.get(key);
                     if(cell2){
                         let d = dist(cell, cell2);
-                        cell2['noise']['time'][time + d] = (cell2['noise']['time'][time + d] | 0) + 1 / d;
-                        cell2['noise']['time'][time + d + 1] = (cell2['noise']['time'][time + d + 1] | 0) - 1 / d;
+                        cell2['noise']['time'][time + d] = (cell2['noise']['time'][time + d] || 0) + 1 / d;
+                        cell2['noise']['time'][time + d + 1] = (cell2['noise']['time'][time + d + 1] || 0) - 1 / d;
                     }
                 }
             }
