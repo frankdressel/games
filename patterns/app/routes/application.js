@@ -3,7 +3,7 @@ import EmberObject from '@ember/object';
 
 export default Ember.Route.extend({
     modelObj: EmberObject.extend({'data': new Map(), 'time': 0}).create(),
-    size: 30,
+    size: 10,
     actions:{
         next(data){
             let that = this;
@@ -48,22 +48,35 @@ export default Ember.Route.extend({
                 }
             }
         },
-        car(cell, data, direction){
+        car(cell, data){
+            if(!cell['street']){
+                console.log("No street");
+                return;
+            }
             let that = this;
             that.send('noise', cell, data, 1);
+            let directions = Object.keys(cell['street']);
+            let direction = directions[Math.floor(Math.random() * directions.length)];
 
             let neighbors = [[1, 0, -1], [1, -1, 0], [0, -1, 1], [-1, 0, 1], [-1, 1, 0], [0, 1, -1]];
             let key = [cell['x'], cell['y'], cell['z']];
             let deltatime=1;
             while(true){
                 deltatime = deltatime + 1;
-                if(deltatime % 3 == 0){
-                    key = [key[0] + neighbors[direction][0], key[1] + neighbors[direction][1], key[2] + neighbors[direction][2]]
-                    if(!data.has(JSON.stringify(key))){
+                key = [key[0] + neighbors[direction][0], key[1] + neighbors[direction][1], key[2] + neighbors[direction][2]]
+                if(!data.has(JSON.stringify(key))){
+                    break;
+                }
+                let newcell = data.get(JSON.stringify(key));
+                directions = newcell['street'][direction];
+                let r = Math.random();
+                for(let d of Object.keys(directions)){
+                    if(r <= directions[d]){
+                        direction = d;
                         break;
                     }
                 }
-                that.send('noise', data.get(JSON.stringify(key)), data, deltatime);
+                that.send('noise', newcell, data, deltatime);
             }
         }
     },
@@ -76,15 +89,31 @@ export default Ember.Route.extend({
                     continue;
                 }
                 let key = JSON.stringify([x, -(x + z), z]);
-                data.set(key, {
+                let cell = {
                     'x': x,
                     'y': y,
                     'z': z,
                     'value': 0,
                     'noise':{'value': 0, 'time': {}},
                     'cars': {},
-                });
+                }; 
+                if(cell['z']==0) {
+                    cell['street'] = {};
+                    cell['street'][1] = {1: 1};
+                    cell['street'][4] = {4: 1};
+                }
+                data.set(key, cell);
             }
+        }
+        let cell = data.get(JSON.stringify([2, -2, 0]));
+        cell['street'][1] = {2: 1};
+        while(true){
+            let key = [cell['x'] + 0, cell['y'] - 1, cell['z'] + 1];
+            if(!data.has(JSON.stringify(key))){
+                break;
+            }
+            cell = data.get(JSON.stringify(key));
+            cell['street'] = {2: {2: 1}};
         }
         return this.get('modelObj');
     }
