@@ -40,19 +40,21 @@ export default Ember.Route.extend({
                     let cell2 = data.get(key);
                     if(cell2 && (cell != cell2)){
                         let d = dist(cell, cell2);
-                        cell2['noise']['time'][time + d + deltatime] = (cell2['noise']['time'][time + d + deltatime] || 0) + 1 / d;
-                        cell2['noise']['time'][time + d + 1 + deltatime] = (cell2['noise']['time'][time + d + 1 + deltatime] || 0) - 1 / d;
+                        cell2['noise']['time'][time + deltatime] = (cell2['noise']['time'][time + deltatime] || 0) + 1 / d;
+                        cell2['noise']['time'][time + 1 + deltatime] = (cell2['noise']['time'][time + 1 + deltatime] || 0) - 1 / d;
+                        //cell2['noise']['time'][time + d + deltatime] = (cell2['noise']['time'][time + d + deltatime] || 0) + 1 / d;
+                        //cell2['noise']['time'][time + d + 1 + deltatime] = (cell2['noise']['time'][time + d + 1 + deltatime] || 0) - 1 / d;
                     }
                 }
             }
         },
         car(cell, data, direction){
             let that = this;
-            that.send('noise', cell, data);
+            that.send('noise', cell, data, 1);
 
             let neighbors = [[1, 0, -1], [1, -1, 0], [0, -1, 1], [-1, 0, 1], [-1, 1, 0], [0, 1, -1]];
             let key = [cell['x'], cell['y'], cell['z']];
-            let deltatime=0;
+            let deltatime=1;
             while(true){
                 deltatime = deltatime + 1;
                 if(deltatime % 3 == 0){
