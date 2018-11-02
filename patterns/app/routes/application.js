@@ -42,8 +42,6 @@ export default Ember.Route.extend({
                         let d = dist(cell, cell2);
                         cell2['noise']['time'][time + deltatime] = (cell2['noise']['time'][time + deltatime] || 0) + 1 / d;
                         cell2['noise']['time'][time + 1 + deltatime] = (cell2['noise']['time'][time + 1 + deltatime] || 0) - 1 / d;
-                        //cell2['noise']['time'][time + d + deltatime] = (cell2['noise']['time'][time + d + deltatime] || 0) + 1 / d;
-                        //cell2['noise']['time'][time + d + 1 + deltatime] = (cell2['noise']['time'][time + d + 1 + deltatime] || 0) - 1 / d;
                     }
                 }
             }
@@ -69,6 +67,10 @@ export default Ember.Route.extend({
                 }
                 let newcell = data.get(JSON.stringify(key));
                 directions = newcell['street'][direction];
+                // End of street reached.
+                if(!directions){
+                    break;
+                }
                 let r = Math.random();
                 for(let d of Object.keys(directions)){
                     if(r <= directions[d]){
@@ -77,6 +79,40 @@ export default Ember.Route.extend({
                     }
                 }
                 that.send('noise', newcell, data, deltatime);
+            }
+        },
+        street(cell, data){
+            cell['street']={};
+        },
+        make(data){
+            function relative2absolute(cell, neighbor){
+                return [cell['x'] + neighbor[0], cell['y'] + neighbor[1], cell['z'] + neighbor[2]];
+            }
+
+            let neighbors = [[1, 0, -1], [1, -1, 0], [0, -1, 1], [-1, 0, 1], [-1, 1, 0], [0, 1, -1]];
+            let cells = Array.from(data.values()).filter(c => c['street']);
+            // Remove existing street directions.
+            for(let cell of cells){
+                cell['street'] = {};
+            }
+            for(let cell of cells){
+                let neighborsWithStreets = neighbors.filter(n => data.get(JSON.stringify(relative2absolute(cell, n)))).filter(n => data.get(JSON.stringify(relative2absolute(cell, n)))['street']);
+                console.log(neighborsWithStreets.length);
+                for(let i = 0; i < neighbors.length;i++){
+                    // The direction we are coming from.
+                    let neighbor = neighbors[(i+3)%6];
+                    if(data.get(JSON.stringify(relative2absolute(cell, neighbor))) && data.get(JSON.stringify(relative2absolute(cell, neighbor)))['street']){
+                        cell['street'][i] = {};
+                        let cumm=0;
+                        for(let j=0;j < neighbors.length;j++){
+                            let neighborTo = neighbors[j];
+                            if(Math.abs(i -j) != 3 && data.get(JSON.stringify(relative2absolute(cell, neighborTo))) && data.get(JSON.stringify(relative2absolute(cell, neighborTo)))['street']){
+                                cumm = cumm + 1 / Math.max(1,neighborsWithStreets.length - 1);
+                                cell['street'][i][j] = cumm;
+                            }
+                        }
+                    }
+                }
             }
         }
     },

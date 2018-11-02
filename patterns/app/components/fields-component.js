@@ -38,9 +38,8 @@ export default Ember.Component.extend({
                 return 'translate(' + that.get('width') / 2 + ',' + that.get('height') / 2 + ')'
             }).
             on('click', function(d, i){
-                that.get('clicked')(d, that.get('data'), Math.floor(Math.random() * Math.floor(7)));
-                //d['value'] = (d['value'] + 1) % 2;
-                d3.select(this).attr('fill', that.get('fillFunction')(d));
+                that.get('clicked')(d, that.get('data'));
+                d3.select(this).attr('fill', that.get('fill')(d));
             });
     },
     didRender(){
@@ -69,6 +68,6 @@ export default Ember.Component.extend({
             attr('stroke', function(d) {
                 return 'red';
             }).
-            attr('fill', d => that.get('fillFunction')(d));
+            attr('fill', d => that.get('fill')(d));
     }
 });
