@@ -40,6 +40,9 @@ export default Ember.Component.extend({
             on('click', function(d, i){
                 that.get('clicked')(d, that.get('data'));
                 d3.select(this).attr('fill', that.get('fill')(d));
+            }).
+            on('mouseover', function(d, i){
+                console.log(d);
             });
     },
     didRender(){
@@ -65,9 +68,7 @@ export default Ember.Component.extend({
         svg.
             selectAll('path').
             data(values).
-            attr('stroke', function(d) {
-                return 'red';
-            }).
+            attr('stroke', d => that.get('stroke')(d)).
             attr('fill', d => that.get('fill')(d));
     }
 });

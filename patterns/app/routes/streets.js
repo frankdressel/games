@@ -5,5 +5,8 @@ export default Ember.Route.extend({
         fill(d){
             return d['street'] && 'black' || 'white';
         },
+        stroke(d) {
+            return 'red';
+        }
     }
 });

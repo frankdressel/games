@@ -3,7 +3,7 @@ import EmberObject from '@ember/object';
 
 export default Ember.Route.extend({
     modelObj: EmberObject.extend({'data': new Map(), 'time': 0}).create(),
-    size: 20,
+    size: 3,
     actions:{
         next(data){
             let that=this;
@@ -16,36 +16,11 @@ export default Ember.Route.extend({
             let neighbors = [[1, 0, -1], [1, -1, 0], [0, -1, 1], [-1, 0, 1], [-1, 1, 0], [0, 1, -1]];
 
             function car(cell, data){
-                cell['cars']++;
-                that.send('noise', cell, data, 1);
                 let directions = Object.keys(cell['street']);
                 let direction = directions[Math.floor(Math.random() * directions.length)];
+                cell['cars'].push(direction);
+                that.send('noise', cell, data, 1);
 
-                let key = [cell['x'], cell['y'], cell['z']];
-                let deltatime=1;
-                while(true){
-                    deltatime = deltatime + 1;
-                    data.get(JSON.stringify(key))['cars'] --;
-                    key = [key[0] + neighbors[direction][0], key[1] + neighbors[direction][1], key[2] + neighbors[direction][2]]
-                    if(!data.has(JSON.stringify(key))){
-                        break;
-                    }
-                    let newcell = data.get(JSON.stringify(key));
-                    newcell['cars'] ++;
-                    directions = newcell['street'][direction];
-                    // End of street reached.
-                    if(!directions){
-                        break;
-                    }
-                    let r = Math.random();
-                    for(let d of Object.keys(directions)){
-                        if(r <= directions[d]){
-                            direction = d;
-                            break;
-                        }
-                    }
-                    that.send('noise', newcell, data, deltatime);
-                }
             }
 
             function relative2absolute(cell, neighbor){
@@ -62,15 +37,15 @@ export default Ember.Route.extend({
 
             function noise2(){
                 let cells = Array.from(data.values());
-                let cars = cells.filter(c => c['cars']>0);
+                let cars = cells.filter(c => c['cars'].length>0);
                 for(let cell of cells){
                     let sum = 0;
                     for(let car of cars){
                         let d = dist(cell, car);
-                        let l = 90 - 16.61 * Math.LN10(d/1);
+                        let l = 90 - 16.61 * Math.log10(d/1);
                         sum = sum + Math.pow(10, 0.1 * l);
                     }
-                    cell['noise']['value'] = 10 * Math.LN10(sum);
+                    cell['noise']['value'] = (10 * Math.log10(sum))/100;
                 }
             }
 
@@ -86,16 +61,44 @@ export default Ember.Route.extend({
                     }
                 }
 
-                that.get('modelObj').set('time', that.get('modelObj').get('time') + 1);
-                let time = that.get('modelObj').get('time');
-                for (let key of data.keys()) {
-                    let cell = data.get(key);
-
-                    if(cell['noise']['time'][time]){
-                        cell['noise']['value'] = cell['noise']['value'] + cell['noise']['time'][time];
-                    }
-                    delete cell['noise']['time'][time];
+                let cars = Array.from(data.values()).filter(c => c['cars'].length>0);
+                for(let cell of cells){
+                    cell['_cars'] = [];
                 }
+                for(let cell of cars){
+                    let key = [cell['x'], cell['y'], cell['z']];
+
+                    for(let dir of cell['cars']){
+                        // End of street reached.
+                        if(typeof(cell['street'][dir]) == 'undefined'){
+                            continue;
+                        }
+                        let directions = Object.keys(cell['street'][dir]);
+                        let direction = directions[Math.floor(Math.random() * directions.length)];
+                        
+                        let r = Math.random();
+                        for(let d of Object.keys(directions)){
+                            if(r <= cell['street'][dir][d]){
+                                direction = directions[d];
+                                break;
+                            }
+                        }
+                        key = relative2absolute(cell, neighbors[direction]);
+                        if(!data.has(JSON.stringify(key))){
+                            continue;
+                        }
+                        let newcell = data.get(JSON.stringify(key));
+                        newcell['_cars'] = newcell['_cars'] || [];
+                        newcell['_cars'].push(direction);
+                    }
+                    cell['cars'] = [];
+                }
+                for(let cell of cells){
+                    cell['cars'] = cell['_cars'];
+                }
+
+                noise2(); 
+                that.get('modelObj').set('time', that.get('modelObj').get('time') + 1);
             }
 
             this.set('loop', window.setInterval(loop, 500));
@@ -149,23 +152,25 @@ export default Ember.Route.extend({
             for(let cell of cells){
                 let neighborsWithStreets = neighbors.filter(n => data.get(JSON.stringify(relative2absolute(cell, n)))).filter(n => data.get(JSON.stringify(relative2absolute(cell, n)))['street']);
                 console.log(neighborsWithStreets.length);
-                for(let i = 0; i < neighbors.length;i++){
-                    // The direction we are coming from.
-                    let neighbor = neighbors[(i+3)%6];
-                    if(data.get(JSON.stringify(relative2absolute(cell, neighbor))) && data.get(JSON.stringify(relative2absolute(cell, neighbor)))['street']){
-                        cell['street'][i] = {};
-                        let cumm=0;
-                        for(let j=0;j < neighbors.length;j++){
-                            let neighborTo = neighbors[j];
-                            if(Math.abs(i -j) != 3 && data.get(JSON.stringify(relative2absolute(cell, neighborTo))) && data.get(JSON.stringify(relative2absolute(cell, neighborTo)))['street']){
-                                cumm = cumm + 1 / Math.max(1,neighborsWithStreets.length - 1);
-                                cell['street'][i][j] = cumm;
+                if(neighborsWithStreets.length > 1){
+                    for(let i = 0; i < neighbors.length;i++){
+                        // The direction we are coming from.
+                        let neighbor = neighbors[(i+3)%6];
+                        if(data.get(JSON.stringify(relative2absolute(cell, neighbor))) && data.get(JSON.stringify(relative2absolute(cell, neighbor)))['street']){
+                            cell['street'][i] = {};
+                            let cumm=0;
+                            for(let j=0;j < neighbors.length;j++){
+                                let neighborTo = neighbors[j];
+                                if(Math.abs(i -j) != 3 && data.get(JSON.stringify(relative2absolute(cell, neighborTo))) && data.get(JSON.stringify(relative2absolute(cell, neighborTo)))['street']){
+                                    cumm = cumm + 1 / Math.max(1,neighborsWithStreets.length - 1);
+                                    cell['street'][i][j] = cumm;
+                                }
                             }
                         }
                     }
                 }
                 //If this is at the edge: Create inbound connections.
-                if(neighborsWithStreets.length==1){
+                else{
                     for(let j=0;j < neighbors.length;j++){
                         let neighborTo = neighbors[j];
                         if(data.get(JSON.stringify(relative2absolute(cell, neighborTo))) && data.get(JSON.stringify(relative2absolute(cell, neighborTo)))['street']){
@@ -192,25 +197,10 @@ export default Ember.Route.extend({
                     'z': z,
                     'value': 0,
                     'noise':{'value': 0, 'time': {}},
-                    'cars': 0,
+                    'cars': [],
                 }; 
-                if(cell['z']==0) {
-                    cell['street'] = {};
-                    cell['street'][1] = {1: 1};
-                    cell['street'][4] = {4: 1};
-                }
                 data.set(key, cell);
             }
-        }
-        let cell = data.get(JSON.stringify([2, -2, 0]));
-        cell['street'][1] = {2: 1};
-        while(true){
-            let key = [cell['x'] + 0, cell['y'] - 1, cell['z'] + 1];
-            if(!data.has(JSON.stringify(key))){
-                break;
-            }
-            cell = data.get(JSON.stringify(key));
-            cell['street'] = {2: {2: 1}};
         }
         return this.get('modelObj');
     }
