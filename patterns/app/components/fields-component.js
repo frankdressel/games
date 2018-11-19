@@ -4,11 +4,10 @@ export default Ember.Component.extend({
     init() {
         this._super(...arguments);
         this.set('size', 10);
-        this.set('width', 960);
-        this.set('height', 960);
     },
-    fillFunction(d){
-        return d3.interpolateOranges(d['noise']['value']);
+    willRender(){
+        this.set('width', this.get('radius') * 4 * this.get('size'));
+        this.set('height', this.get('radius') * 4 * this.get('size'));
     },
     didInsertElement(){
         let that = this;
@@ -27,8 +26,8 @@ export default Ember.Component.extend({
                 for(let i = 0; i < 7; i++){
                     var angle_deg = 60 * i - 30;
                     var angle_rad = Math.PI / 180 * angle_deg;
-                    coords.push([w * singlefield['x'] + 1/2 * w * singlefield['z'] + that.get('size') * Math.cos(angle_rad),
-                        (2 - Math.cos(Math.PI / 180 * 60))* that.get('size') * singlefield['z']  + that.get('size') * Math.sin(angle_rad)
+                    coords.push([w * singlefield.coordinate['x'] + 1/2 * w * singlefield.coordinate['z'] + that.get('size') * Math.cos(angle_rad),
+                        (2 - Math.cos(Math.PI / 180 * 60))* that.get('size') * singlefield.coordinate['z']  + that.get('size') * Math.sin(angle_rad)
                     ]);
                 }
                 return d3.line()(coords);

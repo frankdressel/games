@@ -7,9 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('streets');
   this.route('simulation');
-  this.route('cars');
 });
 
 export default Router;
