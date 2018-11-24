@@ -11,48 +11,45 @@ import org.apache.commons.collections4.CollectionUtils;
 import de.moduliertersingvogel.patterns.endpoints.Simulation;
 import de.moduliertersingvogel.patterns.model.Cell;
 import de.moduliertersingvogel.patterns.model.Coordinate;
-import de.moduliertersingvogel.patterns.model.Grid;
 
 public class Search {
 
 	private static Random random = new Random();
 
-	private static List<Cell> createGrid() {
-		final int radius = 16;
-		List<Cell> cells = new ArrayList<>();
-		for (int z = -radius; z <= radius; z = z + 1) {
-			for (int x = -radius; x <= radius; x = x + 1) {
-				int y = -(x + z);
-				if (Math.abs(y) > radius) {
-					continue;
-				}
-				Coordinate coordinate = new Coordinate(x, y, z);
-				cells.add(new Cell(coordinate, x + "-" + y + "-" + z, 0));
-			}
-		}
-		return cells;
-	}
-
 	public static void main(String[] args) {
-		final int states = 3;
+		final int states = 2;
 		final int neighbors = 7;
 
 		while (true) {
-			int rules[][][] = new int[3][7][7];
+			int rules[][] = new int[states][neighbors];
 			List<String> newrules = new ArrayList<>();
 			for (int i = 0; i < 6; i++) {
-				int oldstate = random.nextInt(3);
-				int neighborsstate1 = random.nextInt(7);
-				int neighborsstate2 = random.nextInt(7);
-				int newstate = random.nextInt(3);
-				rules[oldstate][neighborsstate1][neighborsstate2] = newstate;
-				newrules.add(String.format("%d-%d-%d-%d", oldstate, neighborsstate1, neighborsstate2, newstate));
+				int oldstate = random.nextInt(states);
+				int neighborsstate1 = random.nextInt(neighbors);
+				if(oldstate == 0) {
+					neighborsstate1 = random.nextInt(neighbors-2) + 2;
+				}
+				int newstate = random.nextInt(states);
+				if(oldstate == 0 && newstate == 0) {
+					continue;
+				}
+				if(oldstate == 0 && newstate == 1 && neighborsstate1 < 2) {
+					continue;
+				}
+				if(newstate == 0) {
+					continue;
+				}
+				if(oldstate == 1 && neighborsstate1 == 0 && newstate == 1) {
+					continue;
+				}
+				rules[oldstate][neighborsstate1] = newstate;
+				newrules.add(String.format("%d-%d-%d", oldstate, neighborsstate1, newstate));
 			}
 			Simulation simulation = new Simulation(rules);
 
 			boolean goodrules=false;
-			for (int globalstate = 0; globalstate < Math.pow(3, 7); globalstate++) {
-				List<Cell> cells = createGrid();
+			for (int globalstate = 0; globalstate < Math.pow(states, neighbors); globalstate++) {
+				List<Cell> cells = Utils.createGridCells(16);
 
 				final int innerradius = 1;
 				List<Cell> innercells = cells.stream()
@@ -65,11 +62,11 @@ public class Search {
 				for (int i = 0; i < innercells.size(); i++) {
 					final Cell currentcell = innercells.get(i);
 					cells.remove(currentcell);
-					int remainder = _globalstate % 3;
+					int remainder = _globalstate % states;
 					if(remainder>0) {
 						filledcells++;
 					}
-					_globalstate = _globalstate / 3;
+					_globalstate = _globalstate / states;
 					cells.add(new Cell(currentcell.coordinate, currentcell.id, remainder));
 				}
 
@@ -78,6 +75,9 @@ public class Search {
 					cells = simulation.simulateOneStep(cells);
 					livingcells.add(cells.stream().filter(c -> c.state != 0).map(c -> c.coordinate)
 							.collect(Collectors.toSet()));
+					if(cells.stream().filter(c -> c.state != 0).count() == 0) {
+						break;
+					}
 				}
 				Set<Coordinate> livingcellsatend = livingcells.get(livingcells.size() - 1);
 				int numlivingcellsatend = livingcells.get(livingcells.size() - 1).size();

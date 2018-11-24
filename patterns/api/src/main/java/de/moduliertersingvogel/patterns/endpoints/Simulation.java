@@ -12,12 +12,12 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import de.moduliertersingvogel.patterns.model.Cell;
-import de.moduliertersingvogel.patterns.model.Grid;
+import de.moduliertersingvogel.patterns.model.HexGrid;
 
 @ApplicationScoped
 @Path("simulation")
 public class Simulation {
-	private int[][][] rules = new int[3][7][7];
+	private int[][] rules = new int[3][7];
 
 	public Simulation() {
 //		rules[0][2][0] = 2;
@@ -28,13 +28,12 @@ public class Simulation {
 //		rules[2][2][0] = 1;
 //		rules[1][2][0] = 1;
 		//rules[0][0][1] = 2;
-		rules[1][5][1] = 1;
-		rules[0][0][1] = 2;
-		rules[1][1][0] = 1;
-		rules[2][0][2] = 2;
+		rules[0][3] = 1;
+		rules[0][2] = 1;
+		rules[1][1] = 1;
 	}
 	
-	public Simulation(int[][][] rules) {
+	public Simulation(int[][] rules) {
 		this.rules = rules;
 	}
 
@@ -49,7 +48,7 @@ public class Simulation {
 	}
 
 	public List<Cell> simulateOneStep(List<Cell> cells) {
-		final Grid grid = new Grid(cells);
+		final HexGrid grid = new HexGrid(cells);
 
 		List<Cell> newCells = new ArrayList<>();
 
@@ -58,7 +57,7 @@ public class Simulation {
 			int neighbor1state = grid.numOfNeighbors(cell, 1);
 			int neighbor2state = grid.numOfNeighbors(cell, 2);
 
-			int newcellstate = this.rules[cellstate][neighbor1state][neighbor2state];
+			int newcellstate = this.rules[cellstate][neighbor1state];
 			if (cellstate != newcellstate) {
 				newCells.add(new Cell(cell.coordinate, cell.id, newcellstate));
 			}
