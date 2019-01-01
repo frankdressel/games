@@ -46,16 +46,40 @@ export default Ember.Controller.extend({
             let third=0;
             let plusminus='+';
             while(true){
-                first=getRandomInt(0, 1000);
-                second=getRandomInt(0, 1000);
-                plusminus=getRandomInt(0, 2)==0?'-':'+';
-                if(plusminus==='+' && first+second<=1000){
-                    third=first+second;
-                    break;
+                first=getRandomInt(1, 100000);
+                let r = getRandomInt(0, 4);
+                if(r==0){
+                    plusminus='+';
+                    second=getRandomInt(1, 100000);
+                    if(first+second<=100000){
+                        third=first+second;
+                        break;
+                    }
                 }
-                if(plusminus==='-' && first-second>=0){
-                    third=first-second;
-                    break;
+                if(r==1){
+                    plusminus='-';
+                    second=getRandomInt(1, 100000);
+                    if(first-second>=0){
+                        third=first-second;
+                        break;
+                    }
+                }
+                if(r==2){
+                    plusminus='*';
+                    second=getRandomInt(1, 100);
+                    if(first*second<=100000){
+                        third=first*second;
+                        break;
+                    }
+                }
+                if(r==3){
+                    plusminus='/';
+                    second=getRandomInt(1, 100);
+                    if(first/second>=0){
+                        third=Math.floor(first/second);
+                        break;
+                    }
+                    console.log(first+","+second+","+third);
                 }
             }
             model.get('results').pushObject({

@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'mathe',
     environment: environment,
-    rootURL: '/games/mathe',
+    rootURL: '/games/mathe/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
