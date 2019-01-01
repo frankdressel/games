@@ -15,7 +15,7 @@ export default Ember.Component.extend({
                     return false;
                 }
                 else{
-                    this.sendAction('numberEntered', this.get('name'), parseInt(evt.originalEvent.key));
+                    this.sendAction('numberEntered', this.get('index'), parseInt(evt.originalEvent.key));
                 }
             }
         }

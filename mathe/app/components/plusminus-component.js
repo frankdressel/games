@@ -6,13 +6,12 @@ export default Ember.Component.extend({
             this.sendAction('berechnet');
         },
         korrigiert(){
-            this.get('model').get('results')[this.get('model').get('counter')].result=
-                parseInt(this.get('value31')+''+this.get('value32')+''+this.get('value33')+''+this.get('value34')+''+this.get('value35')+''+this.get('value36'));
+            this.get('model').get('results')[this.get('model').get('counter')].result=parseInt(this.get('thirdnumbers').reduce((p, c) => p+''+c));
             this.sendAction('korrigiert');
             this.set('clearon', this.get('clearon')+1);
         },
-        numberEntered(name, value){
-            this.set(name, value);
+        numberEntered(index, value){
+            this.get('thirdnumbers')[index]=value;
         }
     },
     init() {
@@ -39,16 +38,9 @@ export default Ember.Component.extend({
         let secondString=""+this.get('model').get('results')[this.get('model').get('counter')].second;
         let thirdString=""+this.get('model').get('results')[this.get('model').get('counter')].third;
 
-        for(let i=1; i<=3;i++){
-            for(let j=1;j<=6;j++){
-                this.set('value'+i+j, '');
-            }
-        }
-        for(let i=1;i<Math.min(6, firstString.length+1);i++){
-            this.set('value1'+(i+6-firstString.length), firstString.substr(i-1, 1));
-        }
-        for(let i=1;i<Math.min(6, secondString.length+1);i++){
-            this.set('value2'+(i+6-secondString.length), secondString.substr(i-1, 1));
-        }
+        
+        this.set('firstnumbers', firstString.padStart(6, ' ').split(''));
+        this.set('secondnumbers', secondString.padStart(6, ' ').split(''));
+        this.set('thirdnumbers', thirdString.padStart(6, ' ').split(''));
     }
 });

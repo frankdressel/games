@@ -12,29 +12,22 @@
 {{#unless model.done}}
 <div class="container-fluid">
     <div class="row justify-content-md-center">
-        <div type="text" class="col-md-1 offset-md-1"disabled>{{value11}}</div>
-        <div type="text" class="col-md-1"disabled>{{value12}}</div>
-        <div type="text" class="col-md-1"disabled>{{value13}}</div>
-        <div type="text" class="col-md-1"disabled>{{value14}}</div>
-        <div type="text" class="col-md-1"disabled>{{value15}}</div>
-        <div type="text" class="col-md-1"disabled>{{value16}}</div>
+        <div type="text" class="col-md-1"></div>
+        {{#each firstnumbers as |fns|}}
+            <div type="text" class="col-md-1" disabled>{{fns}}</div>
+        {{/each}}
     </div>
     <div class="row justify-content-md-center">
         <div class="col-md-1">{{plusminus}}</div>
-        <div type="text" class="col-md-1"disabled>{{value21}}</div>
-        <div type="text" class="col-md-1"disabled>{{value22}}</div>
-        <div type="text" class="col-md-1"disabled>{{value23}}</div>
-        <div type="text" class="col-md-1"disabled>{{value24}}</div>
-        <div type="text" class="col-md-1"disabled>{{value25}}</div>
-        <div type="text" class="col-md-1"disabled>{{value26}}</div>
+        {{#each secondnumbers as |sns|}}
+            <div type="text" class="col-md-1" disabled>{{sns}}</div>
+        {{/each}}
     </div>
     <div class="row justify-content-md-center">
-        {{#singlenumber-input name="value31" numberEntered="numberEntered" clearon=clearon class="col-md-1 offset-md-1"}}{{/singlenumber-input}}
-        {{#singlenumber-input name="value32" numberEntered="numberEntered" clearon=clearon class="col-md-1"}}{{/singlenumber-input}}
-        {{#singlenumber-input name="value33" numberEntered="numberEntered" clearon=clearon class="col-md-1"}}{{/singlenumber-input}}
-        {{#singlenumber-input name="value34" numberEntered="numberEntered" clearon=clearon class="col-md-1"}}{{/singlenumber-input}}
-        {{#singlenumber-input name="value35" numberEntered="numberEntered" clearon=clearon class="col-md-1"}}{{/singlenumber-input}}
-        {{#singlenumber-input name="value36" numberEntered="numberEntered" clearon=clearon class="col-md-1"}}{{/singlenumber-input}}
+        <div type="text" class="col-md-1"></div>
+        {{#each thirdnumbers as |tns index|}}
+            {{#singlenumber-input index=index numberEntered="numberEntered" clearon=clearon class="col-md-1"}}{{/singlenumber-input}}
+        {{/each}}
     </div>
     {{#if startState}}
         <div class="row justify-content-md-center">
