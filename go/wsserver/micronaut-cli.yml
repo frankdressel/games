@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: wsserver
+---
+testFramework: junit
+sourceLanguage: java
