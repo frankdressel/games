@@ -1,17 +1,17 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
     actions: {
         berechnet(){
             this.sendAction('berechnet');
         },
         korrigiert(){
-            this.get('model').get('results')[this.get('model').get('counter')].result=parseInt(this.get('thirdnumbers').reduce((p, c) => p+''+c));
+            this.model.get('results')[this.model.get('counter')].result=parseInt(this.thirdnumbers.reduce((p, c) => p+''+c));
             this.sendAction('korrigiert');
-            this.set('clearon', this.get('clearon')+1);
+            this.set('clearon', this.clearon+1);
         },
         numberEntered(index, value){
-            this.get('thirdnumbers')[index]=value;
+            this.thirdnumbers[index]=value;
         }
     },
     init() {
@@ -29,14 +29,14 @@ export default Ember.Component.extend({
         }
     },
     update(){
-        if(this.get('model').get('done')){
+        if(this.model.get('done')){
             return;
         }
-        this.set('plusminus', this.get('model').get('results')[this.get('model').get('counter')].plusminus)
+        this.set('plusminus', this.model.get('results')[this.model.get('counter')].plusminus)
 
-        let firstString=""+this.get('model').get('results')[this.get('model').get('counter')].first;
-        let secondString=""+this.get('model').get('results')[this.get('model').get('counter')].second;
-        let thirdString=""+this.get('model').get('results')[this.get('model').get('counter')].third;
+        let firstString=""+this.model.get('results')[this.model.get('counter')].first;
+        let secondString=""+this.model.get('results')[this.model.get('counter')].second;
+        let thirdString=""+this.model.get('results')[this.model.get('counter')].third;
 
         
         this.set('firstnumbers', firstString.padStart(6, ' ').split(''));

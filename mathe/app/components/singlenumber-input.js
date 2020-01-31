@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Component from '@ember/component';
 
-export default Ember.Component.extend({
+export default Component.extend({
     actions: {
         eingabe(evt){
             if(isNaN(parseInt(evt.originalEvent.key))){
@@ -10,12 +10,12 @@ export default Ember.Component.extend({
                 }
             }
             else{
-                if(!isNaN(parseInt(this.get('val'))) && evt.originalEvent.key!='Backspace'){
+                if(!isNaN(parseInt(this.val)) && evt.originalEvent.key!='Backspace'){
                     evt.originalEvent.preventDefault();
                     return false;
                 }
                 else{
-                    this.sendAction('numberEntered', this.get('index'), parseInt(evt.originalEvent.key));
+                    this.sendAction('numberEntered', this.index, parseInt(evt.originalEvent.key));
                 }
             }
         }

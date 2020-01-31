@@ -1,14 +1,15 @@
-import Ember from 'ember';
+import { copy } from '@ember/object/internals';
+import Controller from '@ember/controller';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
     actions: {
         berechnet(){
-            this.get('model').set('startState', false);
-            this.get('model').set('berechnetState', true);
+            this.model.set('startState', false);
+            this.model.set('berechnetState', true);
         },
         korrigiert(){
 
-            let results=this.get('model').get('results').map(function(e){return e;});
+            let results=this.model.get('results').map(function(e){return e;});
             let counter=results.reduce(function(p, c){return p+(c.result?1:0)}, 0);
             if(results[counter-1].result==results[counter-1].third){
                 results[counter-1].correct=true;
@@ -17,16 +18,16 @@ export default Ember.Controller.extend({
                 results[counter-1].correct=false;
             }
 
-            let modelresults=this.get('model').get('results');
+            let modelresults=this.model.get('results');
             modelresults.clear();
-            results.forEach(function(e){modelresults.pushObject(Ember.copy(e));});
-            this.get('model').set('counter', counter);
-            if(counter==this.get('model').get('results').length){
-                this.get('model').set('done', true);
+            results.forEach(function(e){modelresults.pushObject(copy(e));});
+            this.model.set('counter', counter);
+            if(counter==this.model.get('results').length){
+                this.model.set('done', true);
             }
 
-            this.get('model').set('startState', true);
-            this.get('model').set('berechnetState', false);
+            this.model.set('startState', true);
+            this.model.set('berechnetState', false);
         },
         lernen(){
             window.location.replace('https://klexikon.zum.de/wiki/Spezial:Zuf%C3%A4llige_Seite');

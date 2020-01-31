@@ -26,7 +26,7 @@
     <div class="row justify-content-md-center">
         <div type="text" class="col-md-1"></div>
         {{#each thirdnumbers as |tns index|}}
-            {{#singlenumber-input index=index numberEntered="numberEntered" clearon=clearon class="col-md-1"}}{{/singlenumber-input}}
+            <SinglenumberInput @index={{index}} @numberEntered="numberEntered" @clearon={{clearon}} @class="col-md-1"></SinglenumberInput>
         {{/each}}
     </div>
     {{#if startState}}

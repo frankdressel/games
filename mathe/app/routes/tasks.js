@@ -1,7 +1,8 @@
-import Ember from 'ember';
-const Task = Ember.Object.extend({})
+import Route from '@ember/routing/route';
+import EmberObject from '@ember/object';
+const Task = EmberObject.extend({})
 
-export default Ember.Route.extend({
+export default Route.extend({
     model() {
         return Task.create({
             results: [],
