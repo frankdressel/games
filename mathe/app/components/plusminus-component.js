@@ -1,46 +1,55 @@
-import Component from '@ember/component';
+import Component from '@glimmer/component';
+import { action } from "@ember/object";
+import { tracked } from "@glimmer/tracking";
 
-export default Component.extend({
-    actions: {
-        berechnet(){
-            this.sendAction('berechnet');
-        },
-        korrigiert(){
-            this.model.get('results')[this.model.get('counter')].result=parseInt(this.thirdnumbers.reduce((p, c) => p+''+c));
-            this.sendAction('korrigiert');
-            this.set('clearon', this.clearon+1);
-        },
-        numberEntered(index, value){
-            this.thirdnumbers[index]=value;
-        }
-    },
-    init() {
-        this._super(...arguments);
-        this.set('clearon', 0);
-    },
-    didUpdateAttrs(){
-        if(arguments[0].newAttrs['startState'].value){
-            this.update();
-        }
-    },
-    didReceiveAttrs(){
-        if(arguments[0].newAttrs['startState'].value){
-            this.update();
-        }
-    },
-    update(){
-        if(this.model.get('done')){
-            return;
-        }
-        this.set('plusminus', this.model.get('results')[this.model.get('counter')].plusminus)
+export default class PlusminusComponentComponent extends Component {
+  @tracked
+  plusminus;
+  @tracked
+  firstnumbers;
+  @tracked
+  secondnumbers;
+  @tracked
+  thirdnumbers;
 
-        let firstString=""+this.model.get('results')[this.model.get('counter')].first;
-        let secondString=""+this.model.get('results')[this.model.get('counter')].second;
-        let thirdString=""+this.model.get('results')[this.model.get('counter')].third;
+  constructor() {
+    super(...arguments);
+    this.clearon = 0;
+    this.update();
+  }
 
-        
-        this.set('firstnumbers', firstString.padStart(6, ' ').split(''));
-        this.set('secondnumbers', secondString.padStart(6, ' ').split(''));
-        this.set('thirdnumbers', thirdString.padStart(6, ' ').split(''));
+  @action
+  berechnet(){
+      this.args.berechnet();
+  }
+
+  @action
+  korrigiert(){
+      this.args.model.results[this.args.model.counter].result=parseInt(this.thirdnumbers.reduce((p, c) => p+''+c));
+      this.args.korrigiert();
+      this.clearon = this.clearon+1;
+  }
+
+  @action
+  numberEntered(index, value){
+      this.thirdnumbers[index]=value;
+  }
+
+  @action
+  update(){
+    if(this.args.model.done){
+        return;
     }
-});
+
+    this.plusminus = this.args.model.results[this.args.model.counter].plusminus;
+
+    let firstString=""+this.args.model.results[this.args.model.counter].first;
+    let secondString=""+this.args.model.results[this.args.model.counter].second;
+    let thirdString="0";//""+this.args.model.results[this.args.model.counter].third;
+
+    
+    this.firstnumbers = firstString.padStart(6, ' ').split('');
+    this.secondnumbers = secondString.padStart(6, ' ').split('');
+    this.thirdnumbers = thirdString.padStart(6, ' ').split('');
+  }
+}

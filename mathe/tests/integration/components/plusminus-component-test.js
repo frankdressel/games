@@ -1,27 +1,26 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, find } from '@ember/test-helpers';
-import hbs from 'htmlbars-inline-precompile';
+import { render } from '@ember/test-helpers';
+import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | plusminus component', function(hooks) {
+module('Integration | Component | plusminus-component', function(hooks) {
   setupRenderingTest(hooks);
 
   test('it renders', async function(assert) {
-
     // Set any properties with this.set('myProperty', 'value');
-    // Handle any actions with this.on('myAction', function(val) { ... });
+    // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`{{plusminus-component}}`);
+    await render(hbs`<PlusminusComponent />`);
 
-    assert.dom('*').hasText('');
+    assert.equal(this.element.textContent.trim(), '');
 
     // Template block usage:
     await render(hbs`
-      {{#plusminus-component}}
+      <PlusminusComponent>
         template block text
-      {{/plusminus-component}}
+      </PlusminusComponent>
     `);
 
-    assert.dom('*').hasText('template block text');
+    assert.equal(this.element.textContent.trim(), 'template block text');
   });
 });
