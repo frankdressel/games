@@ -25,15 +25,15 @@ export default class PlusminusComponentComponent extends Component {
 
   @action
   korrigiert(){
-      this.args.model.results[this.args.model.counter].result=parseInt(this.thirdnumbers.reduce((p, c) => p+''+c));
-      this.args.korrigiert();
-      this.clearon = this.clearon+1;
+    this.args.model.results[this.args.model.counter].result=parseInt(this.thirdnumbers.reduce((p, c) => p+''+c));
+    this.args.korrigiert();
+    this.clearon = this.clearon+1;
+    this.thirdnumbers = this.thirdnumbers;
   }
 
   @action
   numberEntered(index, evt){
-      this.thirdnumbers[index]=evt.currentTarget.value.trim();
-      this.thirdnumbers=this.thirdnumbers;
+    this.thirdnumbers[index]=evt.currentTarget.value.trim();
   }
 
   @action

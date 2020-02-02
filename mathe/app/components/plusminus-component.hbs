@@ -11,22 +11,23 @@
 </div>
 {{#unless model.done}}
 <div class="container-fluid" {{did-update this.update @model.counter}}>
-    <div class="row justify-content-md-center">
-        <div type="text" class="col-md-1"></div>
+    <div class="row">
+        <div type="text" class="col-3"></div>
         {{#each firstnumbers as |fns|}}
-            <div type="text" class="col-md-1" disabled>{{fns}}</div>
+            <div type="text" class="col-1 d-flex justify-content-center" disabled>{{fns}}</div>
         {{/each}}
     </div>
-    <div class="row justify-content-md-center">
-        <div class="col-md-1">{{plusminus}}</div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-1">{{plusminus}}</div>
         {{#each secondnumbers as |sns|}}
-            <div type="text" class="col-md-1" disabled>{{sns}}</div>
+            <div type="text" class="col-1 d-flex justify-content-center" disabled>{{sns}}</div>
         {{/each}}
     </div>
-    <div class="row justify-content-md-center">
-        <div class="col-md-1"></div>
+    <div class="row">
+        <div class="col-3"></div>
         {{#each this.thirdnumbers as |tns index|}}
-          <input {{on "input" (fn this.numberEntered index )}} class="col-md-1" type="text" value={{ tns }}/>
+          <input {{on "change" (fn this.numberEntered index )}} class="col-1" type="text" value={{ tns }}/>
         {{/each}}
     </div>
     {{#if @startState}}
