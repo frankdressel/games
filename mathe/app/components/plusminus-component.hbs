@@ -24,9 +24,9 @@
         {{/each}}
     </div>
     <div class="row justify-content-md-center">
-        <div type="text" class="col-md-1"></div>
-        {{#each thirdnumbers as |tns index|}}
-            <SinglenumberInput @index={{index}} @numberEntered={{this.numberEntered}} @clearon={{clearon}} @class="col-md-1"></SinglenumberInput>
+        <div class="col-md-1"></div>
+        {{#each this.thirdnumbers as |tns index|}}
+          <input {{on "input" (fn this.numberEntered index )}} class="col-md-1" type="text" value={{ tns }}/>
         {{/each}}
     </div>
     {{#if @startState}}

@@ -31,8 +31,9 @@ export default class PlusminusComponentComponent extends Component {
   }
 
   @action
-  numberEntered(index, value){
-      this.thirdnumbers[index]=value;
+  numberEntered(index, evt){
+      this.thirdnumbers[index]=evt.currentTarget.value.trim();
+      this.thirdnumbers=this.thirdnumbers;
   }
 
   @action
@@ -45,7 +46,7 @@ export default class PlusminusComponentComponent extends Component {
 
     let firstString=""+this.args.model.results[this.args.model.counter].first;
     let secondString=""+this.args.model.results[this.args.model.counter].second;
-    let thirdString="0";//""+this.args.model.results[this.args.model.counter].third;
+    let thirdString="";
 
     
     this.firstnumbers = firstString.padStart(6, ' ').split('');
