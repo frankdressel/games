@@ -11,6 +11,8 @@ class Task {
   berechnetState = false;
   @tracked
   counter = 0;
+  @tracked
+  done = false;
 }
 
 export default class TasksRoute extends Route {
@@ -28,48 +30,36 @@ export default class TasksRoute extends Route {
       let second=0;
       let third=0;
       let plusminus='+';
-      while(true){
-          first=getRandomInt(1, 100000);
-          let r = getRandomInt(0, 4);
-          if(r==0){
-              plusminus='+';
-              second=getRandomInt(1, 100000);
-              if(first+second<=100000){
-                  third=first+second;
-                  break;
-              }
-          }
-          if(r==1){
-              plusminus='-';
-              second=getRandomInt(1, 100000);
-              if(first-second>=0){
-                  third=first-second;
-                  break;
-              }
-          }
-          if(r==2){
-              plusminus='*';
-              second=getRandomInt(1, 100);
-              if(first*second<=100000){
-                  third=first*second;
-                  break;
-              }
-          }
-          if(r==3){
-              plusminus='/';
-              second=getRandomInt(1, 100);
-              if(first/second>=0){
-                  third=Math.floor(first/second);
-                  break;
-              }
-              console.log(first+","+second+","+third);
-          }
+
+      first=getRandomInt(1, 100000);
+      let r = getRandomInt(0, 4);
+      if(r==0){
+          plusminus='+';
+          second=getRandomInt(1, 100001 - first);
+          third=first+second;
       }
+      if(r==1){
+          plusminus='-';
+          second=getRandomInt(1, first);
+          third=first-second;
+      }
+      if(r==2){
+          plusminus='*';
+          second=getRandomInt(1, Math.min(100, 100000 / first));
+          third=first*second;
+      }
+      if(r==3){
+          plusminus='/';
+          first=getRandomInt(1, 10000);
+          second = getRandomInt(1, Math.min(100, 100000 / first));
+          third = first;
+          first = first * second;
+      }
+
       model.results.pushObject({
           first: first,
           second: second,
           third: third,
-          result: 0,
           plusminus: plusminus,
           @tracked
           correct: null

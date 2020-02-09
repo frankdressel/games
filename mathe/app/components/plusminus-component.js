@@ -46,7 +46,7 @@ export default class PlusminusComponentComponent extends Component {
 
     let firstString=""+this.args.model.results[this.args.model.counter].first;
     let secondString=""+this.args.model.results[this.args.model.counter].second;
-    let thirdString="";
+    let thirdString="0";
 
     
     this.firstnumbers = firstString.padStart(6, ' ').split('');

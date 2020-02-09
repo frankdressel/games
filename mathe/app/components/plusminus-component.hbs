@@ -9,7 +9,7 @@
         {{/if}}
     {{/each}}
 </div>
-{{#unless model.done}}
+{{#unless @model.done}}
 <div class="container-fluid" {{did-update this.update @model.counter}}>
     <div class="row">
         <div type="text" class="col-3"></div>
@@ -42,10 +42,11 @@
     {{/if}}
 </div>
 {{/unless}}
-{{#if model.done}}
+{{#if @model.done}}
 <div class="container-fluid">
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center" style="text-align: center">
         <p class="col-md-4">Super. Du has 10 Aufgaben gerechnet!</p>
     </div>
+  <a class="btn btn-primary" href="https://klexikon.zum.de/wiki/Spezial:Zuf%C3%A4llige_Seite" target="_blank">Möchtest Du etwas lernen?</a>
 </div>
 {{/if}}
