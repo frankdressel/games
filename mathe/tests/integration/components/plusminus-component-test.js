@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { findAll, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | plusminus-component', function(hooks) {
@@ -10,17 +10,18 @@ module('Integration | Component | plusminus-component', function(hooks) {
     // Set any properties with this.set('myProperty', 'value');
     // Handle any actions with this.set('myAction', function(val) { ... });
 
-    await render(hbs`<PlusminusComponent />`);
+    let route = this.owner.lookup('route:tasks');
+    let model = route.model();
+    this.set('model', model);
 
-    assert.equal(this.element.textContent.trim(), '');
+    await render(hbs`<PlusminusComponent @model={{model}}/>`);
 
     // Template block usage:
     await render(hbs`
-      <PlusminusComponent>
-        template block text
+      <PlusminusComponent @model={{model}}>
       </PlusminusComponent>
     `);
 
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.equal(findAll('.success-marker').length, model.results.length);
   });
 });
