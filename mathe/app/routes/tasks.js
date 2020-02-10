@@ -1,5 +1,4 @@
 import Route from '@ember/routing/route';
-import EmberObject from '@ember/object';
 import { tracked } from "@glimmer/tracking";
 
 class Task {
