@@ -30,21 +30,23 @@ export default class TasksRoute extends Route {
       let third=0;
       let plusminus='+';
 
-      first=getRandomInt(1, 100000);
       let r = getRandomInt(0, 4);
       if(r==0){
           plusminus='+';
+          first=getRandomInt(1, 100000);
           second=getRandomInt(1, 100001 - first);
           third=first+second;
       }
       if(r==1){
           plusminus='-';
+          first=getRandomInt(1, 100000);
           second=getRandomInt(1, first);
           third=first-second;
       }
       if(r==2){
           plusminus='*';
-          second=getRandomInt(1, Math.min(100, 100000 / first));
+          first=getRandomInt(1, Math.sqrt(100000));
+          second=getRandomInt(1, Math.sqrt(100000));
           third=first*second;
       }
       if(r==3){
