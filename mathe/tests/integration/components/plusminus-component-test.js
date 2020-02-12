@@ -67,13 +67,11 @@ module('Integration | Component | plusminus-component', function(hooks) {
 
     let button = find('.ready');
     assert.ok(button);
-
     click(button);
-
     click(button);
   });
 
-  test('input is set when calling korrigiert function', async function(assert) {
+  test('input is set at least at second button click', async function(assert) {
     assert.expect(3);
 
     let route = this.owner.lookup('route:tasks');
@@ -89,12 +87,14 @@ module('Integration | Component | plusminus-component', function(hooks) {
 
     await render(hbs`<PlusminusComponent @model={{model}} @berechnet={{action berechnet}} @korrigiert={{action korrigiert}}/>`);
 
+    let num_input = findAll('.third');
+    for(let i = 0; i < num_input.lenth; i++) {
+      num_input[i].value = '' + (i+1);
+    }
+
     let button = find('.ready');
     assert.ok(button);
-    this.set('thirdnumbers', '123456');
-
     click(button);
-
     click(button);
   });
 
@@ -102,18 +102,21 @@ module('Integration | Component | plusminus-component', function(hooks) {
     let route = this.owner.lookup('route:tasks');
     let model = route.model();
     this.set('model', model);
-    model.results[0].correct = true;
 
-    await render(hbs`<PlusminusComponent @model={{model}}/>`);
+    for(let i = 0; i < model.results.length; i++) {
+      await render(hbs`<PlusminusComponent @model={{model}}/>`);
+      let exp = '' +i;
+      assert.equal(findAll('.success-marker')[i].textContent, exp);
 
-    let exp = model.results[0].first + model.results[0].plusminus + model.results[0].second;
-    assert.equal(findAll('.success-marker')[0].textContent, exp);
+      model.results[i].correct = true;
+      await render(hbs`<PlusminusComponent @model={{model}}/>`);
+      exp = model.results[i].first + model.results[i].plusminus + model.results[i].second;
+      assert.equal(findAll('.success-marker')[i].textContent, exp);
 
-    model.results[0].correct = false;
-
-    await render(hbs`<PlusminusComponent @model={{model}}/>`);
-
-    let exp = model.results[0].first + model.results[0].plusminus + model.results[0].second;
-    assert.equal(findAll('.success-marker')[0].textContent, exp);
+      model.results[i].correct = false;
+      await render(hbs`<PlusminusComponent @model={{model}}/>`);
+      exp = model.results[i].first + model.results[i].plusminus + model.results[i].second;
+      assert.equal(findAll('.success-marker')[i].textContent, exp);
+    }
   });
 });
