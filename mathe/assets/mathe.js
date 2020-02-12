@@ -2,7 +2,7 @@
 
 
 
-;define("mathe2/adapters/-json-api", ["exports", "@ember-data/adapter/json-api"], function (_exports, _jsonApi) {
+;define("mathe/adapters/-json-api", ["exports", "@ember-data/adapter/json-api"], function (_exports, _jsonApi) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -15,7 +15,7 @@
     }
   });
 });
-;define("mathe2/app", ["exports", "ember-resolver", "ember-load-initializers", "mathe2/config/environment"], function (_exports, _emberResolver, _emberLoadInitializers, _environment) {
+;define("mathe/app", ["exports", "ember-resolver", "ember-load-initializers", "mathe/config/environment"], function (_exports, _emberResolver, _emberLoadInitializers, _environment) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -41,7 +41,7 @@
   _exports.default = App;
   (0, _emberLoadInitializers.default)(App, _environment.default.modulePrefix);
 });
-;define("mathe2/component-managers/glimmer", ["exports", "@glimmer/component/-private/ember-component-manager"], function (_exports, _emberComponentManager) {
+;define("mathe/component-managers/glimmer", ["exports", "@glimmer/component/-private/ember-component-manager"], function (_exports, _emberComponentManager) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -54,7 +54,7 @@
     }
   });
 });
-;define("mathe2/components/plusminus-component", ["exports", "@glimmer/component"], function (_exports, _component) {
+;define("mathe/components/plusminus-component", ["exports", "@glimmer/component"], function (_exports, _component) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -129,10 +129,10 @@
   
   */
   {
-    id: "lg0CYksA",
+    id: "DiBcrEvX",
     block: "{\"symbols\":[\"tns\",\"index\",\"sns\",\"fns\",\"result\",\"index\",\"@model\"],\"statements\":[[7,\"div\",true],[10,\"style\",\"display: flex\"],[8],[0,\"\\n\"],[4,\"each\",[[23,7,[\"results\"]]],null,{\"statements\":[[4,\"if\",[[28,\"eq\",[[23,5,[\"correct\"]],true],null]],null,{\"statements\":[[0,\"            \"],[7,\"button\",true],[10,\"style\",\"flex-grow: 1\"],[10,\"class\",\"success-marker btn btn-success\"],[10,\"type\",\"button\"],[8],[1,[23,5,[\"first\"]],false],[7,\"br\",true],[8],[9],[1,[23,5,[\"plusminus\"]],false],[7,\"br\",true],[8],[9],[1,[23,5,[\"second\"]],false],[9],[0,\"\\n\"]],\"parameters\":[]},{\"statements\":[[4,\"if\",[[28,\"eq\",[[23,5,[\"correct\"]],false],null]],null,{\"statements\":[[0,\"            \"],[7,\"button\",true],[10,\"style\",\"flex-grow: 1\"],[10,\"class\",\"success-marker btn btn-danger\"],[10,\"type\",\"button\"],[8],[1,[23,5,[\"first\"]],false],[7,\"br\",true],[8],[9],[1,[23,5,[\"plusminus\"]],false],[7,\"br\",true],[8],[9],[1,[23,5,[\"second\"]],false],[9],[0,\"\\n\"]],\"parameters\":[]},{\"statements\":[[0,\"            \"],[7,\"button\",true],[10,\"style\",\"flex-grow: 1\"],[10,\"class\",\"success-marker btn btn-primary\"],[10,\"type\",\"button\"],[8],[1,[23,6,[]],false],[9],[0,\"\\n        \"]],\"parameters\":[]}]],\"parameters\":[]}]],\"parameters\":[5,6]},null],[9],[0,\"\\n\"],[4,\"unless\",[[23,7,[\"done\"]]],null,{\"statements\":[[7,\"div\",false],[12,\"class\",\"container-fluid\"],[3,\"did-update\",[[23,0,[\"update\"]],[23,7,[\"counter\"]]]],[8],[0,\"\\n    \"],[7,\"div\",true],[10,\"class\",\"row\"],[8],[0,\"\\n        \"],[7,\"div\",true],[10,\"class\",\"col-3\"],[10,\"type\",\"text\"],[8],[9],[0,\"\\n\"],[4,\"each\",[[24,[\"firstnumbers\"]]],null,{\"statements\":[[0,\"            \"],[7,\"div\",true],[10,\"class\",\"first col-1 d-flex justify-content-center\"],[10,\"disabled\",\"\"],[10,\"type\",\"text\"],[8],[1,[23,4,[]],false],[9],[0,\"\\n\"]],\"parameters\":[4]},null],[0,\"    \"],[9],[0,\"\\n    \"],[7,\"div\",true],[10,\"class\",\"row\"],[8],[0,\"\\n        \"],[7,\"div\",true],[10,\"class\",\"col-2\"],[8],[9],[0,\"\\n        \"],[7,\"div\",true],[10,\"class\",\"col-1\"],[8],[1,[22,\"plusminus\"],false],[9],[0,\"\\n\"],[4,\"each\",[[24,[\"secondnumbers\"]]],null,{\"statements\":[[0,\"            \"],[7,\"div\",true],[10,\"class\",\"second col-1 d-flex justify-content-center\"],[10,\"disabled\",\"\"],[10,\"type\",\"text\"],[8],[1,[23,3,[]],false],[9],[0,\"\\n\"]],\"parameters\":[3]},null],[0,\"    \"],[9],[0,\"\\n    \"],[7,\"div\",true],[10,\"class\",\"row\"],[8],[0,\"\\n        \"],[7,\"div\",true],[10,\"class\",\"col-3\"],[8],[9],[0,\"\\n\"],[4,\"each\",[[23,0,[\"thirdnumbers\"]]],null,{\"statements\":[[0,\"          \"],[7,\"input\",false],[12,\"class\",\"third col-1\"],[12,\"value\",[23,1,[]]],[12,\"type\",\"text\"],[3,\"on\",[\"change\",[28,\"fn\",[[23,0,[\"numberEntered\"]],[23,2,[]]],null]]],[8],[9],[0,\"\\n\"]],\"parameters\":[1,2]},null],[0,\"    \"],[9],[0,\"\\n\"],[4,\"if\",[[23,7,[\"startState\"]]],null,{\"statements\":[[0,\"        \"],[7,\"div\",true],[10,\"class\",\"row justify-content-md-center\"],[8],[0,\"\\n            \"],[7,\"button\",false],[12,\"class\",\"ready btn btn-success col-md-4\"],[12,\"type\",\"button\"],[3,\"action\",[[23,0,[]],\"berechnet\"]],[8],[0,\"Ich habe es fertig gerechnet\"],[9],[0,\"\\n        \"],[9],[0,\"\\n\"]],\"parameters\":[]},null],[4,\"if\",[[23,7,[\"berechnetState\"]]],null,{\"statements\":[[0,\"        \"],[7,\"div\",true],[10,\"class\",\"row justify-content-md-center\"],[8],[0,\"\\n            \"],[7,\"button\",false],[12,\"class\",\"ready btn btn-success col-md-4\"],[12,\"type\",\"button\"],[3,\"action\",[[23,0,[]],\"korrigiert\"]],[8],[0,\"Ich habe es fertig \xFCberpr\xFCft\"],[9],[0,\"\\n        \"],[9],[0,\"\\n\"]],\"parameters\":[]},null],[9],[0,\"\\n\"]],\"parameters\":[]},null],[4,\"if\",[[23,7,[\"done\"]]],null,{\"statements\":[[7,\"div\",true],[10,\"class\",\"container-fluid\"],[8],[0,\"\\n    \"],[7,\"div\",true],[10,\"class\",\"row justify-content-md-center\"],[10,\"style\",\"text-align: center\"],[8],[0,\"\\n        \"],[7,\"p\",true],[10,\"class\",\"col-md-4\"],[8],[0,\"Super. Du has 10 Aufgaben gerechnet!\"],[9],[0,\"\\n    \"],[9],[0,\"\\n  \"],[7,\"a\",true],[10,\"class\",\"btn btn-primary\"],[10,\"href\",\"https://klexikon.zum.de/wiki/Spezial:Zuf%C3%A4llige_Seite\"],[10,\"target\",\"_blank\"],[8],[0,\"M\xF6chtest Du etwas lernen?\"],[9],[0,\"\\n\"],[9],[0,\"\\n\"]],\"parameters\":[]},null]],\"hasEval\":false}",
     meta: {
-      moduleName: "mathe2/components/plusminus-component.hbs"
+      moduleName: "mathe/components/plusminus-component.hbs"
     }
   });
 
@@ -206,7 +206,7 @@
 
   Ember._setComponentTemplate(__COLOCATED_TEMPLATE__, PlusminusComponentComponent);
 });
-;define("mathe2/components/welcome-page", ["exports", "ember-welcome-page/components/welcome-page"], function (_exports, _welcomePage) {
+;define("mathe/components/welcome-page", ["exports", "ember-welcome-page/components/welcome-page"], function (_exports, _welcomePage) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -219,7 +219,7 @@
     }
   });
 });
-;define("mathe2/controllers/tasks", ["exports"], function (_exports) {
+;define("mathe/controllers/tasks", ["exports"], function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -267,7 +267,7 @@
   }, (_applyDecoratedDescriptor(_class.prototype, "berechnet", [Ember._action], Object.getOwnPropertyDescriptor(_class.prototype, "berechnet"), _class.prototype), _applyDecoratedDescriptor(_class.prototype, "korrigiert", [Ember._action], Object.getOwnPropertyDescriptor(_class.prototype, "korrigiert"), _class.prototype)), _class);
   _exports.default = TasksController;
 });
-;define("mathe2/data-adapter", ["exports", "@ember-data/debug"], function (_exports, _debug) {
+;define("mathe/data-adapter", ["exports", "@ember-data/debug"], function (_exports, _debug) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -280,7 +280,7 @@
     }
   });
 });
-;define("mathe2/helpers/and", ["exports", "ember-truth-helpers/helpers/and"], function (_exports, _and) {
+;define("mathe/helpers/and", ["exports", "ember-truth-helpers/helpers/and"], function (_exports, _and) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -299,7 +299,7 @@
     }
   });
 });
-;define("mathe2/helpers/app-version", ["exports", "mathe2/config/environment", "ember-cli-app-version/utils/regexp"], function (_exports, _environment, _regexp) {
+;define("mathe/helpers/app-version", ["exports", "mathe/config/environment", "ember-cli-app-version/utils/regexp"], function (_exports, _environment, _regexp) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -338,7 +338,7 @@
 
   _exports.default = _default;
 });
-;define("mathe2/helpers/eq", ["exports", "ember-truth-helpers/helpers/equal"], function (_exports, _equal) {
+;define("mathe/helpers/eq", ["exports", "ember-truth-helpers/helpers/equal"], function (_exports, _equal) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -357,7 +357,7 @@
     }
   });
 });
-;define("mathe2/helpers/gt", ["exports", "ember-truth-helpers/helpers/gt"], function (_exports, _gt) {
+;define("mathe/helpers/gt", ["exports", "ember-truth-helpers/helpers/gt"], function (_exports, _gt) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -376,7 +376,7 @@
     }
   });
 });
-;define("mathe2/helpers/gte", ["exports", "ember-truth-helpers/helpers/gte"], function (_exports, _gte) {
+;define("mathe/helpers/gte", ["exports", "ember-truth-helpers/helpers/gte"], function (_exports, _gte) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -395,7 +395,7 @@
     }
   });
 });
-;define("mathe2/helpers/is-array", ["exports", "ember-truth-helpers/helpers/is-array"], function (_exports, _isArray) {
+;define("mathe/helpers/is-array", ["exports", "ember-truth-helpers/helpers/is-array"], function (_exports, _isArray) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -414,7 +414,7 @@
     }
   });
 });
-;define("mathe2/helpers/is-empty", ["exports", "ember-truth-helpers/helpers/is-empty"], function (_exports, _isEmpty) {
+;define("mathe/helpers/is-empty", ["exports", "ember-truth-helpers/helpers/is-empty"], function (_exports, _isEmpty) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -427,7 +427,7 @@
     }
   });
 });
-;define("mathe2/helpers/is-equal", ["exports", "ember-truth-helpers/helpers/is-equal"], function (_exports, _isEqual) {
+;define("mathe/helpers/is-equal", ["exports", "ember-truth-helpers/helpers/is-equal"], function (_exports, _isEqual) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -446,7 +446,7 @@
     }
   });
 });
-;define("mathe2/helpers/lt", ["exports", "ember-truth-helpers/helpers/lt"], function (_exports, _lt) {
+;define("mathe/helpers/lt", ["exports", "ember-truth-helpers/helpers/lt"], function (_exports, _lt) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -465,7 +465,7 @@
     }
   });
 });
-;define("mathe2/helpers/lte", ["exports", "ember-truth-helpers/helpers/lte"], function (_exports, _lte) {
+;define("mathe/helpers/lte", ["exports", "ember-truth-helpers/helpers/lte"], function (_exports, _lte) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -484,7 +484,7 @@
     }
   });
 });
-;define("mathe2/helpers/not-eq", ["exports", "ember-truth-helpers/helpers/not-equal"], function (_exports, _notEqual) {
+;define("mathe/helpers/not-eq", ["exports", "ember-truth-helpers/helpers/not-equal"], function (_exports, _notEqual) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -503,7 +503,7 @@
     }
   });
 });
-;define("mathe2/helpers/not", ["exports", "ember-truth-helpers/helpers/not"], function (_exports, _not) {
+;define("mathe/helpers/not", ["exports", "ember-truth-helpers/helpers/not"], function (_exports, _not) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -522,7 +522,7 @@
     }
   });
 });
-;define("mathe2/helpers/or", ["exports", "ember-truth-helpers/helpers/or"], function (_exports, _or) {
+;define("mathe/helpers/or", ["exports", "ember-truth-helpers/helpers/or"], function (_exports, _or) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -541,7 +541,7 @@
     }
   });
 });
-;define("mathe2/helpers/pluralize", ["exports", "ember-inflector/lib/helpers/pluralize"], function (_exports, _pluralize) {
+;define("mathe/helpers/pluralize", ["exports", "ember-inflector/lib/helpers/pluralize"], function (_exports, _pluralize) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -551,7 +551,7 @@
   var _default = _pluralize.default;
   _exports.default = _default;
 });
-;define("mathe2/helpers/singularize", ["exports", "ember-inflector/lib/helpers/singularize"], function (_exports, _singularize) {
+;define("mathe/helpers/singularize", ["exports", "ember-inflector/lib/helpers/singularize"], function (_exports, _singularize) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -561,7 +561,7 @@
   var _default = _singularize.default;
   _exports.default = _default;
 });
-;define("mathe2/helpers/xor", ["exports", "ember-truth-helpers/helpers/xor"], function (_exports, _xor) {
+;define("mathe/helpers/xor", ["exports", "ember-truth-helpers/helpers/xor"], function (_exports, _xor) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -580,7 +580,7 @@
     }
   });
 });
-;define("mathe2/initializers/app-version", ["exports", "ember-cli-app-version/initializer-factory", "mathe2/config/environment"], function (_exports, _initializerFactory, _environment) {
+;define("mathe/initializers/app-version", ["exports", "ember-cli-app-version/initializer-factory", "mathe/config/environment"], function (_exports, _initializerFactory, _environment) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -600,7 +600,7 @@
   };
   _exports.default = _default;
 });
-;define("mathe2/initializers/container-debug-adapter", ["exports", "ember-resolver/resolvers/classic/container-debug-adapter"], function (_exports, _containerDebugAdapter) {
+;define("mathe/initializers/container-debug-adapter", ["exports", "ember-resolver/resolvers/classic/container-debug-adapter"], function (_exports, _containerDebugAdapter) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -619,7 +619,7 @@
   };
   _exports.default = _default;
 });
-;define("mathe2/initializers/ember-data-data-adapter", ["exports", "@ember-data/debug/setup"], function (_exports, _setup) {
+;define("mathe/initializers/ember-data-data-adapter", ["exports", "@ember-data/debug/setup"], function (_exports, _setup) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -632,7 +632,7 @@
     }
   });
 });
-;define("mathe2/initializers/ember-data", ["exports", "ember-data/setup-container", "ember-data"], function (_exports, _setupContainer, _emberData) {
+;define("mathe/initializers/ember-data", ["exports", "ember-data/setup-container", "ember-data"], function (_exports, _setupContainer, _emberData) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -652,7 +652,7 @@
   };
   _exports.default = _default;
 });
-;define("mathe2/initializers/export-application-global", ["exports", "mathe2/config/environment"], function (_exports, _environment) {
+;define("mathe/initializers/export-application-global", ["exports", "mathe/config/environment"], function (_exports, _environment) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -706,7 +706,7 @@
   };
   _exports.default = _default;
 });
-;define("mathe2/instance-initializers/ember-data", ["exports", "ember-data/initialize-store-service"], function (_exports, _initializeStoreService) {
+;define("mathe/instance-initializers/ember-data", ["exports", "ember-data/initialize-store-service"], function (_exports, _initializeStoreService) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -719,7 +719,7 @@
   };
   _exports.default = _default;
 });
-;define("mathe2/modifiers/did-insert", ["exports", "@ember/render-modifiers/modifiers/did-insert"], function (_exports, _didInsert) {
+;define("mathe/modifiers/did-insert", ["exports", "@ember/render-modifiers/modifiers/did-insert"], function (_exports, _didInsert) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -732,7 +732,7 @@
     }
   });
 });
-;define("mathe2/modifiers/did-update", ["exports", "@ember/render-modifiers/modifiers/did-update"], function (_exports, _didUpdate) {
+;define("mathe/modifiers/did-update", ["exports", "@ember/render-modifiers/modifiers/did-update"], function (_exports, _didUpdate) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -745,7 +745,7 @@
     }
   });
 });
-;define("mathe2/modifiers/will-destroy", ["exports", "@ember/render-modifiers/modifiers/will-destroy"], function (_exports, _willDestroy) {
+;define("mathe/modifiers/will-destroy", ["exports", "@ember/render-modifiers/modifiers/will-destroy"], function (_exports, _willDestroy) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -758,7 +758,7 @@
     }
   });
 });
-;define("mathe2/router", ["exports", "mathe2/config/environment"], function (_exports, _environment) {
+;define("mathe/router", ["exports", "mathe/config/environment"], function (_exports, _environment) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -784,7 +784,7 @@
     this.route('tasks');
   });
 });
-;define("mathe2/routes/tasks", ["exports"], function (_exports) {
+;define("mathe/routes/tasks", ["exports"], function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -921,7 +921,7 @@
 
   _exports.default = TasksRoute;
 });
-;define("mathe2/serializers/-default", ["exports", "@ember-data/serializer/json"], function (_exports, _json) {
+;define("mathe/serializers/-default", ["exports", "@ember-data/serializer/json"], function (_exports, _json) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -934,7 +934,7 @@
     }
   });
 });
-;define("mathe2/serializers/-json-api", ["exports", "@ember-data/serializer/json-api"], function (_exports, _jsonApi) {
+;define("mathe/serializers/-json-api", ["exports", "@ember-data/serializer/json-api"], function (_exports, _jsonApi) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -947,7 +947,7 @@
     }
   });
 });
-;define("mathe2/serializers/-rest", ["exports", "@ember-data/serializer/rest"], function (_exports, _rest) {
+;define("mathe/serializers/-rest", ["exports", "@ember-data/serializer/rest"], function (_exports, _rest) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -960,7 +960,7 @@
     }
   });
 });
-;define("mathe2/services/store", ["exports", "ember-data/store"], function (_exports, _store) {
+;define("mathe/services/store", ["exports", "ember-data/store"], function (_exports, _store) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -973,7 +973,7 @@
     }
   });
 });
-;define("mathe2/templates/application", ["exports"], function (_exports) {
+;define("mathe/templates/application", ["exports"], function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -982,16 +982,16 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "TQ1sSOoB",
+    "id": "gDT0mGH7",
     "block": "{\"symbols\":[],\"statements\":[[1,[22,\"outlet\"],false],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
-      "moduleName": "mathe2/templates/application.hbs"
+      "moduleName": "mathe/templates/application.hbs"
     }
   });
 
   _exports.default = _default;
 });
-;define("mathe2/templates/tasks", ["exports"], function (_exports) {
+;define("mathe/templates/tasks", ["exports"], function (_exports) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -1000,16 +1000,16 @@
   _exports.default = void 0;
 
   var _default = Ember.HTMLBars.template({
-    "id": "FKVbO2PP",
+    "id": "Sv0Amhsk",
     "block": "{\"symbols\":[\"@model\"],\"statements\":[[5,\"plusminus-component\",[],[[\"@model\",\"@startState\",\"@berechnetState\",\"@berechnet\",\"@korrigiert\",\"@counter\",\"@lernen\"],[[23,1,[]],[23,1,[\"startState\"]],[23,1,[\"berechnetState\"]],[23,0,[\"berechnet\"]],[23,0,[\"korrigiert\"]],[23,1,[\"counter\"]],[23,0,[\"lernen\"]]]]],[0,\"\\n\"]],\"hasEval\":false}",
     "meta": {
-      "moduleName": "mathe2/templates/tasks.hbs"
+      "moduleName": "mathe/templates/tasks.hbs"
     }
   });
 
   _exports.default = _default;
 });
-;define("mathe2/transforms/boolean", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
+;define("mathe/transforms/boolean", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -1022,7 +1022,7 @@
     }
   });
 });
-;define("mathe2/transforms/date", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
+;define("mathe/transforms/date", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -1035,7 +1035,7 @@
     }
   });
 });
-;define("mathe2/transforms/number", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
+;define("mathe/transforms/number", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -1048,7 +1048,7 @@
     }
   });
 });
-;define("mathe2/transforms/string", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
+;define("mathe/transforms/string", ["exports", "@ember-data/serializer/-private"], function (_exports, _private) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -1063,8 +1063,8 @@
 });
 ;
 
-;define('mathe2/config/environment', [], function() {
-  var prefix = 'mathe2';
+;define('mathe/config/environment', [], function() {
+  var prefix = 'mathe';
 try {
   var metaName = prefix + '/config/environment';
   var rawConfig = document.querySelector('meta[name="' + metaName + '"]').getAttribute('content');
@@ -1084,7 +1084,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("mathe2/app")["default"].create({"name":"mathe2","version":"0.0.0+d730274e"});
+            require("mathe/app")["default"].create({"name":"mathe","version":"0.0.0+e51afb14"});
           }
         
-//# sourceMappingURL=mathe2.map
+//# sourceMappingURL=mathe.map

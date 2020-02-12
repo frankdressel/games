@@ -1,6 +1,6 @@
 'use strict';
 
-define("mathe2/tests/integration/components/plusminus-component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
+define("mathe/tests/integration/components/plusminus-component-test", ["qunit", "ember-qunit", "@ember/test-helpers"], function (_qunit, _emberQunit, _testHelpers) {
   "use strict";
 
   (0, _qunit.module)('Integration | Component | plusminus-component', function (hooks) {
@@ -171,7 +171,7 @@ define("mathe2/tests/integration/components/plusminus-component-test", ["qunit",
     });
   });
 });
-define("mathe2/tests/lint/app.lint-test", [], function () {
+define("mathe/tests/lint/app.lint-test", [], function () {
   "use strict";
 
   QUnit.module('ESLint | app');
@@ -196,20 +196,20 @@ define("mathe2/tests/lint/app.lint-test", [], function () {
     assert.ok(true, 'routes/tasks.js should pass ESLint\n\n');
   });
 });
-define("mathe2/tests/lint/templates.template.lint-test", [], function () {
+define("mathe/tests/lint/templates.template.lint-test", [], function () {
   "use strict";
 
   QUnit.module('TemplateLint');
-  QUnit.test('mathe2/templates/application.hbs', function (assert) {
+  QUnit.test('mathe/templates/application.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'mathe2/templates/application.hbs should pass TemplateLint.\n\n');
+    assert.ok(true, 'mathe/templates/application.hbs should pass TemplateLint.\n\n');
   });
-  QUnit.test('mathe2/templates/tasks.hbs', function (assert) {
+  QUnit.test('mathe/templates/tasks.hbs', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'mathe2/templates/tasks.hbs should pass TemplateLint.\n\n');
+    assert.ok(true, 'mathe/templates/tasks.hbs should pass TemplateLint.\n\n');
   });
 });
-define("mathe2/tests/lint/tests.lint-test", [], function () {
+define("mathe/tests/lint/tests.lint-test", [], function () {
   "use strict";
 
   QUnit.module('ESLint | tests');
@@ -230,13 +230,13 @@ define("mathe2/tests/lint/tests.lint-test", [], function () {
     assert.ok(true, 'unit/routes/tasks-test.js should pass ESLint\n\n');
   });
 });
-define("mathe2/tests/test-helper", ["mathe2/app", "mathe2/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
+define("mathe/tests/test-helper", ["mathe/app", "mathe/config/environment", "@ember/test-helpers", "ember-qunit"], function (_app, _environment, _testHelpers, _emberQunit) {
   "use strict";
 
   (0, _testHelpers.setApplication)(_app.default.create(_environment.default.APP));
   (0, _emberQunit.start)();
 });
-define("mathe2/tests/unit/controllers/tasks-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+define("mathe/tests/unit/controllers/tasks-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
   "use strict";
 
   (0, _qunit.module)('Unit | Controller | tasks', function (hooks) {
@@ -278,7 +278,7 @@ define("mathe2/tests/unit/controllers/tasks-test", ["qunit", "ember-qunit"], fun
     });
   });
 });
-define("mathe2/tests/unit/routes/tasks-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
+define("mathe/tests/unit/routes/tasks-test", ["qunit", "ember-qunit"], function (_qunit, _emberQunit) {
   "use strict";
 
   (0, _qunit.module)('Unit | Route | tasks', function (hooks) {
@@ -328,8 +328,8 @@ define("mathe2/tests/unit/routes/tasks-test", ["qunit", "ember-qunit"], function
     });
   });
 });
-define('mathe2/config/environment', [], function() {
-  var prefix = 'mathe2';
+define('mathe/config/environment', [], function() {
+  var prefix = 'mathe';
 try {
   var metaName = prefix + '/config/environment';
   var rawConfig = document.querySelector('meta[name="' + metaName + '"]').getAttribute('content');
@@ -347,6 +347,6 @@ catch(err) {
 
 });
 
-require('mathe2/tests/test-helper');
+require('mathe/tests/test-helper');
 EmberENV.TESTS_FILE_LOADED = true;
 //# sourceMappingURL=tests.map
