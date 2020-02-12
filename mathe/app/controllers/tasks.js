@@ -4,6 +4,7 @@ import { action } from "@ember/object";
 export default class TasksController extends Controller {
   constructor(){
     super(...arguments);
+    this.counter =0;
   }
 
   @action
@@ -15,16 +16,16 @@ export default class TasksController extends Controller {
   @action
   korrigiert(){
     let results=this.model.results.map(function(e){return e;});
-    let counter=results.reduce(function(p, c){return p+(c.result != null ? 1 : 0)}, 0);
-    if(results[counter-1].result==results[counter-1].third){
-        results[counter-1].correct=true;
+    if(results[this.counter].result==results[this.counter].third){
+        results[this.counter].correct=true;
     }
     else{
-        results[counter-1].correct=false;
+        results[this.counter].correct=false;
     }
 
-    this.model.counter = counter;
-    if(counter==this.model.results.length){
+    this.counter = this.counter + 1;
+    this.model.counter = this.counter;
+    if(this.counter==this.model.results.length){
         this.model.done = true;
     }
 
