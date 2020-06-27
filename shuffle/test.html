@@ -1,0 +1,173 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Shuffle</title>
+  <meta name="description" content="Shuffle">
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://d3js.org/d3-color.v1.min.js"></script>
+  <script src="https://d3js.org/d3-interpolate.v1.min.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+</head>
+
+<body>
+	<script type="module">
+        import {Game} from './data.js';
+
+		let base_length = 3;
+        let loop_length = 4;
+		let square_length = 20;
+        let sql2 = square_length / 2;
+		let index = 0;
+        let circle = 'm 10,' + (10 + sql2);
+        let p = [sql2, 0];
+        for(let i = 0; i < 400; i++) {
+            let nc = [sql2 * Math.cos(2 * Math.PI / 400 * i - Math.PI), sql2 * Math.sin(2 * Math.PI / 400 * i - Math.PI)];
+            circle = circle + ' l ' + (p[0] - nc[0]) + ',' + (p[1] - nc[1]);
+            p = nc;
+        }
+        let marker = [
+            'm 10,10 l 0,' + square_length + ' l ' + square_length + ',0 l 0,-' + square_length + ' l -' + square_length + ',0',
+            'm 10,' + (10 + sql2) + ' l ' + sql2 + ',' + sql2 + ' l ' + sql2 + ',-' + sql2 + ' l -' + sql2 + ',-' + sql2 + ' l -' + sql2 + ',' + sql2,
+            circle,
+            'm 10,' + (10 + square_length) + ' l ' + square_length + ',0 l -' + sql2 + ',-' + square_length + ' l -' + sql2 + ',' + square_length,
+        ];
+
+		function translate(d) {
+			let bx = d['sequence'][index]['block']%base_length;
+			let by = Math.floor(d['sequence'][index]['block']/base_length);
+
+			let x = d['sequence'][index]['cell']%base_length;
+			let y = Math.floor(d['sequence'][index]['cell']/base_length);
+
+			let bspace = (square_length * base_length + 30);
+			let space = square_length + 8;
+			return 'translate(' + (bspace * bx + space * x) + ',' + (bspace * by + space * y) + ')';
+		}
+
+		let blocks = [];
+		for(let i = 0; i < Math.pow(base_length, 2); i++) {
+			blocks.push(i);
+		}
+        let game = new Game({base_length: 3, loop_length: loop_length})
+        let cells = game.cells;
+
+		function leftmouseclick(d) {
+      if(game.remaining_actions['one'] == 0) {
+        return;
+      }
+      game.remaining_actions['one']--;
+      if(d.player && d.player == 'one') {
+        d.marker = marker[(marker.indexOf(d.marker) + 1) % marker.length];
+        d3.select(this).transition().duration(0).attr('d', d => d.marker);
+      }
+      if(!d.player) {
+        let all_in_block = cells.map(e => e['sequence'][index]).filter(e => e['block'] == d['sequence'][index]['block']);
+        d.player = 'one';
+        d3.select(this).style('fill', d.player == 'one' ? d3.color('red') : d3.color('blue'));
+      }
+		}
+
+    function contextmenu(d) {
+      if(game.remaining_actions['one'] == 0) {
+        d3.event.preventDefault();
+        return;
+      }
+      game.remaining_actions['one']--;
+      d3.event.preventDefault();
+      let block = d.sequence[index].block;
+      let color = d3.select(this).style('fill');
+      d3.select(this)
+        .transition()
+        .duration(1000)
+        .style('fill', d3.interpolateTurbo(block * 1.0 / Math.pow(base_length, 2)))
+        .transition()
+        .duration(2000)
+        .style('fill', color);
+    }
+
+		let svg = d3.select("body")
+			.append('svg')
+			.attr('width', '100%')
+			.attr('height', '300px');
+		svg
+			.append('g')
+			.attr('class', 'blocks')
+			.selectAll('rect')
+			.data(blocks)
+			.enter()
+			.append('rect')
+			.attr('x', d => 2 + (d % base_length) * (square_length * base_length + 30))
+			.attr('y', d => 2 + Math.floor(d / base_length) * (square_length * base_length + 30))
+			.attr('width', d => base_length * square_length + 15 + 8 * (base_length - 1))
+			.attr('height', d => base_length * square_length + 15 + 8 * (base_length - 1))
+			.attr('fill', d => d3.interpolateTurbo(d * 1.0 / Math.pow(base_length, 2)));
+
+		let rects = svg
+			.append('g')
+			.attr('class', 'cells')
+			.selectAll('rect')
+			.data(cells)
+			.enter()
+			.append('path')
+            .attr('d', marker[0])
+			.attr('x', d => 10)
+			.attr('y', d => 10)
+      .attr('id', d => d.id)
+			.attr('width', d => square_length)
+			.attr('height', d => square_length)
+			.style('fill', d => d.color)
+			.on('click', leftmouseclick)
+            .on('contextmenu', contextmenu);
+
+    rects
+      .transition()
+      .duration(1000)
+      .attr('transform', d => 'translate(10, 10)')
+      .transition()
+      .duration(1000)
+      .attr('transform', translate);
+
+		function update() {
+      if(game.remaining_actions['one'] > 0) {
+        return;
+      }
+
+			index = (index + 1)%loop_length;
+  
+      let free_cells = game.cells.filter(c => !c.player);
+      for(let i = 0; i <= game.remaining_actions['two']; i++) {
+        let cell = free_cells.splice(Math.floor(Math.random() * free_cells.length), 1)[0];
+        cell.player = 'two';
+        game.remaining_actions['two']--;
+      }
+
+			rects
+				.transition()
+				.duration(1000)
+				.attr('transform', d => 'translate(10, 10)')
+				.transition()
+				.duration(1000)
+				.attr('transform', translate)
+        .transition()
+        .style('fill', d => {
+          if(d.player) {
+            if(d.player == 'one') {
+              return d3.color('red');
+            }
+            return d3.color('blue');
+          }
+        });
+
+      game.process_state();
+		}
+
+    window.update = update;
+	</script>
+	<button onclick="update()">Next</button>
+</body>
+</html>

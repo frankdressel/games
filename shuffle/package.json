@@ -1,0 +1,17 @@
+{
+    "scripts": {
+        "test": "babel-node spec/run.js"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.10.1",
+        "@babel/core": "^7.10.2",
+        "@babel/node": "^7.10.1",
+        "@babel/plugin-proposal-class-properties": "^7.10.1",
+        "@babel/plugin-transform-destructuring": "^7.10.1",
+        "jasmine": "^3.5.0",
+        "puppeteer": "^4.0.0"
+    },
+    "dependencies": {
+        "@babel/preset-env": "^7.10.2"
+    }
+}
