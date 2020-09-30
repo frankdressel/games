@@ -1,4 +1,4 @@
-# games
+# Games
 
 This repository contains the source code of simple games. See the subfolders 
 for details.
@@ -10,3 +10,4 @@ for details.
 [(Multiplayer) Go](https://frankdressel.github.io/games/go)
 
 [Bored and need easy, normal or hard sudokus?](https://frankdressel.github.io/games/sudoku)
+
